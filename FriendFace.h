@@ -23,6 +23,19 @@ class FriendFace{
 
 		void fill_vector(std::string file_name);
 
+		void showContacts();
+
+		void getSuggestions();
+
+		bool connected(Person person, Person person);
+
+		void nonMutual();
+
+		void menu();
+
+		void quit();
+
 
 };
+#endif
 
