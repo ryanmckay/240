@@ -44,6 +44,7 @@ class FriendFace{
 		
 		void listUsers();
 
+		void menuCall();
 };
 #endif
 
