@@ -39,6 +39,8 @@ class FriendFace{
 		void menu();
 
 		void quit();
+
+		void trim(std::string& s);
 		
 		void listUsers();
 
