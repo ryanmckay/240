@@ -9,15 +9,14 @@ using namespace std;
 
 */
 
-/* CONSTRUCTOR */
+/* CONSTRUCTOR ========================================================= */
 
 	FriendFace::FriendFace(string file_name) {
-		setup(userVec, file_name);
-		menuCall();	
+		setup(userVec, file_name);	
 	}
 
 
-/* PRIVATE METHODS */
+/* PRIVATE METHODS ========================================================= */
 
 	/* File parsing and set up user vector */
 	void FriendFace::setup(vector<User>& userVec, string file_name) {
@@ -187,7 +186,7 @@ using namespace std;
 		}
 	}
 
-/* HELPER METHODS */
+/* HELPER METHODS ========================================================= */
 
 	/* Trim right and left white-space for string */
 	void FriendFace::trim(string& s) {

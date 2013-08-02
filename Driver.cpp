@@ -24,19 +24,22 @@ else
 cout << endl << endl;
 
 
-//-----------------------------------
+/* Create Object */
 timeval begin;
 gettimeofday(&begin, NULL);
 b1 = begin.tv_usec;
 
-/* create FriendFace object */
 FriendFace f1 = FriendFace(inFile);
 
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "Building FriendFace object took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 
-//-----------------------------------
+/* Call Menu */
+f1.menuCall();
+
+
+/* Time View Kin */
 gettimeofday(&begin, NULL);
 b1 = begin.tv_usec;
 
