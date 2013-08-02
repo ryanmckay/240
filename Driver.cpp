@@ -54,12 +54,12 @@ cout << "List users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << 
 
 /*menu*/
 cout << endl << endl;
-cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
+cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
 cout << "             Welcome to FriendFace(patent pending)                  " << endl;
 cout << "         You have been selected for pre-alpha testing.              " << endl;
 cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
 
-cout << "\tWhat would you like to do?" << endl;
+cout << "\t What would you like to do?" << endl;
 cout << "\t\t|1. Log in\n";
 cout << "\t\t|2. Show all users\n";
 cout << "\t\t|3. Quit\n";

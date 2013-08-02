@@ -52,3 +52,15 @@ using namespace std;
 	    }
 
 	}
+
+	void User::addKin(string name){
+		kin.push_back(name);
+	}
+
+	void User::addFriend(string name){
+		friends.push_back(name);
+	}
+
+	void User::addCoWorker(string name){
+		coworkers.push_back(name);
+	}

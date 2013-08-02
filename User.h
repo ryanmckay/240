@@ -42,6 +42,13 @@ public:
 	void viewFriends();
 	
 	void viewCoworkers();
+
+	void addKin(std::string name);
+
+	void addFriend(std::string name);
+
+	void addCoWorker(std::string name);
+
 };
 
 #endif
