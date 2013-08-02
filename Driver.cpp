@@ -45,13 +45,16 @@ f1.listUsers();
 
 
 cout << endl << endl;
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-cout << "         Welcome to FriendFace(patent pending)                      " << endl;
+cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
+cout << "             Welcome to FriendFace(patent pending)                  " << endl;
 cout << "         You have been selected for pre-alpha testing.              " << endl;
-cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
 
-cout << "What would you like to do?" << endl;
-
+cout << "\tWhat would you like to do?" << endl;
+cout << "\t\t|1. Log in\n";
+cout << "\t\t|2. Show all users\n";
+cout << "\t\t|3. Quit\n";
+cout << "\t\t|4. Dance\n";
 
 return 0;
 };
