@@ -14,7 +14,7 @@ public:
 	
 /* CONSTRUCTOR */
 	
-	User();
+	User(std::string name);
 
 
 private:
@@ -22,7 +22,7 @@ private:
 /* FIELDS */
 	
 	std::string name;
-	int allCount;
+	int connections;
 	std::vector<std::string> kin;
 	std::vector<std::string> friends;
 	std::vector<std::string> coworkers;
