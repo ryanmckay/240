@@ -23,7 +23,7 @@ using namespace std;
 		int totalUsers;
 		string temp;
 		
-		cout << "Parsing file: " < file_name << "...";
+		cout << "Parsing file: " << file_name << "...";
 		ifstream inFile(file_name.c_str());	
 		
 		/* error if input not good */

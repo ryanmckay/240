@@ -17,7 +17,7 @@ class FriendFace{
 
 	private:
 
-		std::vector<User>
+		std::vector<User> userVec;
 
 		void setup(std::string file_name);
 		
