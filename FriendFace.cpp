@@ -1,7 +1,7 @@
 #include "FriendFace.h"
 #include <iostream> // for file parsing
 #include <sstream> // converting from str to numbers
-
+#include <unistd.h>
 using namespace std;
 
 /* NOTES
@@ -84,6 +84,7 @@ using namespace std;
 				getline(inFile,temp2);
 				trim(temp2);
 				type = temp2.at(0);
+			
 				
 				switch(type) {
 					case 'C' :
@@ -96,6 +97,7 @@ using namespace std;
 						(*target).addFriend(temp);
 						break;
 				}	
+				
 					
 				connectionCount--;	
 			}
@@ -117,6 +119,72 @@ using namespace std;
 	void FriendFace::listUsers() {
 		for(vector<User>::iterator it = userVec.begin(); it != userVec.end(); it++){
 			cout << userVec.at(it-userVec.begin()).name << endl;
+		}
+	}
+
+	void FriendFace::menuCall() {
+		int running = 1;
+		string choice;
+		string currentUser;
+		
+		cout << "Input: ";
+		getline(cin, choice);
+		cout << "Choice: " << choice << endl;	
+		
+
+		while(running){
+			if (choice.size() > 1)
+				cout << "Invalid input." << endl;
+			
+			else if (choice.size() == 0)
+				cout << "No input given." << endl;
+			
+			
+			else if (choice == "1"){
+				/*code for login*/
+				cout << "Name: ";
+				getline(cin, currentUser);
+				cout << "Logged in as: " << currentUser << endl;
+				running = 0;
+			}
+			
+			else if (choice == "2"){
+				cout << "*Currently Registered Users*" << endl;
+				listUsers();
+				running = 0;
+			}
+
+			else if (choice == "3"){
+				running = 0;
+				cout << "Thank you for using FriendFace." << endl;
+			}
+
+			else if (choice == "4"){
+				cout << "<('o'<) " << endl;
+				sleep(1);
+				cout << "^( '-' )^ " << endl;
+				sleep(1);
+				cout << "(>‘o’)> " << endl;
+				sleep(1);
+				cout << "v( ‘.’ )v " << endl;
+				sleep(1);
+				cout << "<(' .' )> " << endl;
+				sleep(1);
+				cout << "<('.'<) " << endl;
+				sleep(1);
+				cout << "^( '.' )^ " << endl;
+				sleep(1);
+				cout << "(>‘.’)> " << endl;
+				sleep(1);
+				cout << "v( ‘.’ )v " << endl;
+				sleep(1);
+				cout << "<(' .' )> " << endl;
+				cout << endl;
+				cout << "Rock on." << endl;
+				running = 0;
+			}
+
+			
 		}
 	}
 
