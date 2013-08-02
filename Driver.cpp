@@ -14,7 +14,7 @@ int main(int argc, char** argv){
 string inFile;
 
 if(argc !=2) {
-	cout << "Usage: "./exe textFile.txt" << endl;
+	cout << "Usage: ./exe textFile.txt" << endl;
 	exit (-1);
 }
 else
