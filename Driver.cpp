@@ -82,5 +82,7 @@ cout << "\t\t|3. Quit\n";
 cout << "\t\t|4. Dance\n";
 
 
+f1.menuCall();
+
 return 0;
 };
