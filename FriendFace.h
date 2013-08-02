@@ -7,6 +7,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cstring>
+#include "User.h"
 
 typedef std::string Friends;
 typedef std::string Co_Workers;
@@ -27,7 +28,7 @@ class FriendFace{
 
 		void getSuggestions();
 
-		bool connected(Person person, Person person);
+		bool connected(User user1, User user2);
 
 		void nonMutual();
 
