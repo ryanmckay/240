@@ -130,7 +130,7 @@ using namespace std;
 		cout << "Input: ";
 		getline(cin, choice);
 		cout << "Choice: " << choice << endl;	
-		
+		cout << endl << endl;
 
 		while(running){
 			if (choice.size() > 1)
@@ -142,8 +142,16 @@ using namespace std;
 			
 			else if (choice == "1"){
 				/*code for login*/
+				/*need to not allow non registered users to log in*/
+				cout << "Enter q to quit." << endl;
 				cout << "Name: ";
 				getline(cin, currentUser);
+				if(currentUser == "q")
+					exit(-1);
+
+				bool found = 0;
+
+
 				cout << "Logged in as: " << currentUser << endl;
 				running = 0;
 			}
@@ -157,6 +165,7 @@ using namespace std;
 			else if (choice == "3"){
 				running = 0;
 				cout << "Thank you for using FriendFace." << endl;
+				exit(-1);
 			}
 
 			else if (choice == "4"){
@@ -178,7 +187,7 @@ using namespace std;
 				sleep(1);
 				cout << "v( ‘.’ )v " << endl;
 				sleep(1);
-				cout << "<(' .' )> " << endl;
+				cout << "<('.' )> " << endl;
 				cout << endl;
 				cout << "Rock on." << endl;
 				running = 0;
