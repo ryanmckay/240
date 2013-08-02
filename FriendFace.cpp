@@ -62,15 +62,13 @@ using namespace std;
 			ss.str(temp2);
 			ss >> connectionCount;
 			
-			/* fill connection vectors for user */
-			cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
+			//cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 			/* grab correct user object */
 			User* target;
 			int found = 0;
 			vector<User>::iterator it = userVec.begin();
 			while(!found && it!=userVec.end()) {
 				if( temp == userVec.at(it-userVec.begin()).name ) {
-					cout << "FOUND!" << endl;
 					target = &userVec.at(it-userVec.begin());
 					found = 1;
 				}
@@ -78,15 +76,27 @@ using namespace std;
 					it++;
 			}
 			
-			/* fill the user's vectors */
+			/* fill the user's connection vectors */
+			char type;
 			while( connectionCount > 0 ) {
 				/* temp holds connectionName, temp2 a char for connection Type */
 				getline(inFile,temp,',');
 				getline(inFile,temp2);
 				trim(temp2);
-		
+				type = temp2.at(0);
+				
+				switch(type) {
+					case 'C' :
+						(*target).addCoworker(temp);
+						break;
+					case 'K' :
+						(*target).addKin(temp);
+						break;
+					default :
+						(*target).addFriend(temp);
+						break;
+				}	
 					
-			
 				connectionCount--;	
 			}
 			userCount--;

@@ -35,6 +35,11 @@ FriendFace f1 = FriendFace(inFile);
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "Building FriendFace object took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+
+cout << "Viewing Kin " << endl;
+f1.userVec.at(0).viewKin();
+
+
 //-----------------------------------
 
 

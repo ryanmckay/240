@@ -61,6 +61,6 @@ using namespace std;
 		friends.push_back(name);
 	}
 
-	void User::addCoWorker(string name){
+	void User::addCoworker(string name){
 		coworkers.push_back(name);
 	}

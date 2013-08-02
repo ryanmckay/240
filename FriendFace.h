@@ -15,7 +15,7 @@ typedef std::string Kin;
 
 class FriendFace{
 
-	private:
+	public:
 
 		std::vector<User> userVec;
 

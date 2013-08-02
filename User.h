@@ -47,7 +47,7 @@ public:
 
 	void addFriend(std::string name);
 
-	void addCoWorker(std::string name);
+	void addCoworker(std::string name);
 
 };
 
