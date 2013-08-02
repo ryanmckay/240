@@ -32,7 +32,9 @@ private:
 	/* Returns user name */	
 	std::string getName();
 
-	void 
+	int getCount();
+
+	void viewAll(); 
 
 	void viewKin();	
 
