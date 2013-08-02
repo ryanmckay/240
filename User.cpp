@@ -7,14 +7,14 @@
 
 using namespace std;
 
-	User::User(string name){
-		this.name = name;
+	User::User(string _name){
+		name = _name;
 	}
 
 	/*fill in other values after file read?*/
 
-	int User::getCount(){
-		return count;
+	int User::getConnections(){
+		return connections;
 	}
 
 	void User::viewAll(){
@@ -27,28 +27,28 @@ using namespace std;
 		cout << endl;
 
 		cout << "Co-Worker connection(s)" << endl;
-		viewCoWorkers();
+		viewCoworkers();
 		cout << endl;
 
 	}
 
 	void User::viewKin(){
 		for(vector<string>::iterator it = kin.begin(); it != kin.end(); it++){
-			cout << kin.at(it) << endl;
+			cout << kin.at(it-kin.begin()) << endl;
 		}
 
 	}
 
 	void User::viewFriends(){
 		for(vector<string>::iterator it = friends.begin(); it != friends.end(); it++){
-			cout << friends.at(it) << endl;
+			cout << friends.at(it-kin.begin()) << endl;
 		}
 
 	}
 
-	void User::viewCoWorkers(){
+	void User::viewCoworkers(){
 		for(vector<string>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
-			cout << coworkers.at(it) << endl;
+			cout << coworkers.at(it-kin.begin()) << endl;
 	    }
 
 	}

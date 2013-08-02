@@ -19,12 +19,12 @@ class FriendFace{
 
 		std::vector<User> userVec;
 
-		void setup(std::string file_name);
+		void setup(std::vector<User>& userVec, std::string file_name);
 		
 
 	public:
 
-		FriendFace();
+		FriendFace(std::string file_name);
 
 		void fill_vector(std::string file_name);
 
@@ -39,7 +39,8 @@ class FriendFace{
 		void menu();
 
 		void quit();
-
+		
+		void listUsers();
 
 };
 #endif

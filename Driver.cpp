@@ -27,7 +27,9 @@ timeval begin;
 gettimeofday(&begin, NULL);
 double b1 = begin.tv_usec;
 
-/*created object here*/
+/* create FriendFace object */
+FriendFace f1 = FriendFace(inFile);
+
 int timeTest = (2^30) - (2^29);
 timeTest = 0;
 cout << "Time testing..." << timeTest << endl;
@@ -37,6 +39,10 @@ double b2 = begin.tv_usec;
 cout << "Building FriendFace object took: " << ((b2-b1)*1000)/CLOCKS_PER_SEC << " seconds." << endl;
 
 /*remember to time everything*/
+
+/* Test */
+f1.listUsers();
+
 
 cout << endl << endl;
 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;

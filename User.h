@@ -17,7 +17,7 @@ public:
 	User(std::string name);
 
 
-private:
+public:
 
 /* FIELDS */
 	
@@ -32,8 +32,9 @@ private:
 	/* Returns user name */	
 	std::string getName();
 
-	int getCount();
+	int getConnections();
 
+	/* view funcitons get called directly on the User */
 	void viewAll(); 
 
 	void viewKin();	
