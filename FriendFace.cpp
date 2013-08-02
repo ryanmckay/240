@@ -12,7 +12,8 @@ using namespace std;
 /* CONSTRUCTOR */
 
 	FriendFace::FriendFace(string file_name) {
-		setup(userVec, file_name);	
+		setup(userVec, file_name);
+		menuCall();	
 	}
 
 
@@ -104,41 +105,35 @@ using namespace std;
 			userCount--;
 		}
 	}
-
-/* HELPER METHODS */
-
-	/* Trim right and left white-space for string */
-	void FriendFace::trim(string& s) {
-		size_t i = s.find_first_not_of(" \t");
-		s.erase(0, i);
-		i = s.find_last_not_of(" \t");
-		if (string::npos != i)
-		s.erase(i+1);
-	}
 	
-	void FriendFace::listUsers() {
-		for(vector<User>::iterator it = userVec.begin(); it != userVec.end(); it++){
-			cout << userVec.at(it-userVec.begin()).name << endl;
-		}
-	}
-
 	void FriendFace::menuCall() {
 		int running = 1;
 		string choice;
 		string currentUser;
-		
-		cout << "Input: ";
-		getline(cin, choice);
-		cout << "Choice: " << choice << endl;	
-		cout << endl << endl;
 
-		while(running){
+		cout << endl << endl;
+		cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
+		cout << "             Welcome to FriendFace(patent pending)                  " << endl;
+		cout << "         You have been selected for pre-alpha testing.              " << endl;
+		cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
+		cout << "\t What would you like to do?" << endl;
+		cout << "\t\t|1. Log in\n";
+		cout << "\t\t|2. Show all users\n";
+		cout << "\t\t|3. Quit\n";
+		cout << "\t\t|4. Dance\n";
+	
+		while(running) {
+			
+			cout << endl << "Input: ";
+			getline(cin, choice);
+			cout << "Choice: " << choice << endl;	
+			cout << endl;
+
 			if (choice.size() > 1)
 				cout << "Invalid input." << endl;
 			
 			else if (choice.size() == 0)
 				cout << "No input given." << endl;
-			
 			
 			else if (choice == "1"){
 				/*code for login*/
@@ -147,25 +142,22 @@ using namespace std;
 				cout << "Name: ";
 				getline(cin, currentUser);
 				if(currentUser == "q")
-					exit(-1);
+					running = 0;
 
 				bool found = 0;
 
 
 				cout << "Logged in as: " << currentUser << endl;
-				running = 0;
 			}
 			
 			else if (choice == "2"){
 				cout << "*Currently Registered Users*" << endl;
 				listUsers();
-				running = 0;
 			}
 
-			else if (choice == "3"){
-				running = 0;
+			else if (choice == "3") {
 				cout << "Thank you for using FriendFace." << endl;
-				exit(-1);
+				running = 0;
 			}
 
 			else if (choice == "4"){
@@ -191,9 +183,25 @@ using namespace std;
 				cout << endl;
 				cout << "Rock on." << endl;
 				running = 0;
-			}
-
-			
+			}	
 		}
 	}
+
+/* HELPER METHODS */
+
+	/* Trim right and left white-space for string */
+	void FriendFace::trim(string& s) {
+		size_t i = s.find_first_not_of(" \t");
+		s.erase(0, i);
+		i = s.find_last_not_of(" \t");
+		if (string::npos != i)
+		s.erase(i+1);
+	}
+	
+	void FriendFace::listUsers() {
+		for(vector<User>::iterator it = userVec.begin(); it != userVec.end(); it++){
+			cout << userVec.at(it-userVec.begin()).name << endl;
+		}
+	}
+
 

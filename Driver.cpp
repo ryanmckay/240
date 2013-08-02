@@ -49,11 +49,6 @@ b2 = begin.tv_usec;
 cout << "viewKin took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 
 //-----------------------------------
-
-//-----------------------------------
-
-
-//-----------------------------------
 /* Test */
 gettimeofday(&begin, NULL);
 b1 = begin.tv_usec;
@@ -66,23 +61,6 @@ gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "List users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 //-----------------------------------
-
-
-/*menu*/
-cout << endl << endl;
-cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
-cout << "             Welcome to FriendFace(patent pending)                  " << endl;
-cout << "         You have been selected for pre-alpha testing.              " << endl;
-cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
-
-cout << "\t What would you like to do?" << endl;
-cout << "\t\t|1. Log in\n";
-cout << "\t\t|2. Show all users\n";
-cout << "\t\t|3. Quit\n";
-cout << "\t\t|4. Dance\n";
-
-
-f1.menuCall();
 
 return 0;
 };
