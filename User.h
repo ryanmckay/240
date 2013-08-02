@@ -8,21 +8,37 @@ User.h */
 #include <string>
 #include <vector>
 
-#endif
-
 class User {
 
 public:
 	
-	/* CONSTRUCTOR */
+/* CONSTRUCTOR */
+	
 	User();
+
 
 private:
 
+/* FIELDS */
+	
 	std::string name;
 	int allCount;
 	std::vector<std::string> kin;
 	std::vector<std::string> friends;
 	std::vector<std::string> coworkers;
 
-}
+/* METHODS */
+	
+	/* Returns user name */	
+	std::string getName();
+
+	void 
+
+	void viewKin();	
+
+	void viewFriends();
+	
+	void viewCoworkers();
+};
+
+#endif
