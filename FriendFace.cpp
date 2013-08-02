@@ -53,9 +53,7 @@ using namespace std;
 		while( userCount > 0 ) {
 			getline(inFile,temp,',');
 			getline(inFile,temp2);
-			cout << temp << endl;
 			trim(temp2);
-			cout << temp2 << endl;
 			
 			/* clearing ss */
 			ss.str("");
@@ -66,11 +64,13 @@ using namespace std;
 			/* fill connection vectors for user */
 			cout << "connectionCount: " << connectionCount << endl;
 			while( connectionCount > 0 ) {
+				/* temp holds connectionName, temp2 a char for connection Type */
 				getline(inFile,temp,',');
 				getline(inFile,temp2);
 				trim(temp2);
-				cout << "Connection Name: " << temp << endl;
-				cout << "Connection Type: " << temp2 << endl;		
+				//bool x = 'F'==temp2.at(0);
+			
+			
 				connectionCount--;	
 			}
 			userCount--;
