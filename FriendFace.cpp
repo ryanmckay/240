@@ -51,26 +51,29 @@ using namespace std;
 			
 			/* Login */
 			else if (choice == "1"){
-				cout << "Enter q to quit." << endl;
-				cout << "Name: ";
-				getline(cin, currentUserName);
-				if(currentUserName == "q")
-					menuCall();
-				else {
-					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++) {
-						if(currentUserName==userVec.at(it-userVec.begin()).name){
-							currentUser = &userVec.at(it-userVec.begin());
-							found = 1;
-							break;	
+				while (!found){
+					cout << "Enter q to quit." << endl;
+					cout << "Name: ";
+					getline(cin, currentUserName);
+					if(currentUserName == "q")
+						menuCall();
+					else {
+						for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++) {
+							if(currentUserName==userVec.at(it-userVec.begin()).name){
+								currentUser = &userVec.at(it-userVec.begin());
+								found = 1;
+								break;	
+							}
 						}
 					}
+					if(!found)
+						cout << "User not found." << endl << endl;
 				}
 				if(found){
 					cout << "Logged in as: " << currentUserName << endl;
 					loginMenu((*currentUser));
 				}
-				else
-					cout << "User not found." << endl;			
+						
 			}
 
 			/* Show all users */
