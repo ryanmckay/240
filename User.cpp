@@ -22,7 +22,7 @@ using namespace std;
 		viewKin();
 		cout << endl;
 		
-		cout << "Family connection(s)" << endl;
+		cout << "Friend connection(s)" << endl;
 		viewFriends();
 		cout << endl;
 
@@ -48,7 +48,7 @@ using namespace std;
 
 	void User::viewCoworkers(){
 		for(vector<string>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
-			cout << coworkers.at(it-friends.begin()) << endl;
+			cout << coworkers.at(it-coworkers.begin()) << endl;
 	    }
 
 	}
