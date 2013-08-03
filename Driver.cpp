@@ -38,8 +38,9 @@ cout << "Building FriendFace object took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << "
 /* Call Menu */
 f1.menuCall();
 
-
+//----------------------------------
 /* Time View Kin */
+/**
 gettimeofday(&begin, NULL);
 b1 = begin.tv_usec;
 
@@ -50,9 +51,12 @@ cout << endl;
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "viewKin took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+*/
 
 //-----------------------------------
 /* Test */
+
+/**
 gettimeofday(&begin, NULL);
 b1 = begin.tv_usec;
 
@@ -63,6 +67,7 @@ cout << endl;
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "List users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+*/
 //-----------------------------------
 
 return 0;

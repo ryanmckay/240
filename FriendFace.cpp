@@ -60,8 +60,11 @@ using namespace std;
 							found = 1;	
 					}
 				}
-				if(found)
+				if(found){
 					cout << "Logged in as: " << currentUser << endl;
+					running = 0;
+					logMenu(currentUser);
+				}
 				else
 					cout << "User not found." << endl;			
 			}
@@ -101,6 +104,15 @@ using namespace std;
 				running = 0;
 			}	
 		}
+	}
+
+	void FriendFace::logMenu(string userName){
+		cout << endl;
+		cout << "\tLog in Menu" << endl;
+		cout << "\t\t|1. Get suggested friends" << endl;
+		cout << "\t\t|2. Check if two people are connected" << endl;
+		cout << "\t\t|3. Show all non-mutual connections" << endl;
+
 	}
 
 
