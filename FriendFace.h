@@ -46,7 +46,7 @@ class FriendFace{
 
 		void menuCall();
 
-		void logMenu(std::string userName);
+		void loginMenu(User& currentUser);
 };
 #endif
 

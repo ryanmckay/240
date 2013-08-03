@@ -22,7 +22,8 @@ using namespace std;
 	void FriendFace::menuCall() {
 		int running=1, found=0;
 		string choice;
-		string currentUser;
+		string currentUserName;
+		User* currentUser;
 
 		cout << endl << endl;
 		cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
@@ -49,36 +50,40 @@ using namespace std;
 			else if (choice.size() == 0)
 				cout << "No input given." << endl;
 			
+			/* Login */
 			else if (choice == "1"){
 				cout << "Enter q to quit." << endl;
 				cout << "Name: ";
-				getline(cin, currentUser);
-				if(currentUser == "q")
+				getline(cin, currentUserName);
+				if(currentUserName == "q")
 					running = 0;
 				else {
 					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++) {
-						if(currentUser==userVec.at(it-userVec.begin()).name)
+						if(currentUserName==userVec.at(it-userVec.begin()).name)
+							currentUser = &userVec.at(it-userVec.begin());
 							found = 1;	
 					}
 				}
 				if(found){
-					cout << "Logged in as: " << currentUser << endl;
-					running = 0;
-					logMenu(currentUser);
+					cout << "Logged in as: " << currentUserName << endl;
+					loginMenu((*currentUser));
 				}
 				else
 					cout << "User not found." << endl;			
 			}
 
+			/* Show all users */
 			else if (choice == "2"){
 				cout << "*Currently Registered Users*" << endl;
 				listUsers();
 			}
 
+			/* Check if two users are connected */
 			else if (choice == "3"){
 				cout << "Not implemented yet." << endl;
 			}
 
+			/* Quit */
 			else if (choice == "4") {
 				cout << "Thank you for using FriendFace." << endl;
 				running = 0;
@@ -106,17 +111,42 @@ using namespace std;
 				cout << "<('.' )> " << endl;
 				cout << endl;
 				cout << "Rock on." << endl;
-				running = 0;
 			}	
 		}
 	}
 
-	void FriendFace::logMenu(string userName){
+	void FriendFace::loginMenu(User& currentUser){
+		string choice;
 		cout << endl;
 		cout << "\tLog in Menu" << endl;
-		cout << "\t\t|1. Get suggested friends" << endl;
-		cout << "\t\t|2. Show all non-mutual connections" << endl;
+		cout << "\t\t|1. Show all connections" << endl;
+		cout << "\t\t|2. Show all friends" << endl;
+		cout << "\t\t|3. Show all family" << endl;
+		cout << "\t\t|4. Show all coworkers" << endl; 
+		cout << "\t\t|5. Get suggested friends" << endl;
+		cout << "\t\t|6. Show all non-mutual connections" << endl;
+		getline(cin,choice);
+		if(choice.size()>1)
+			cout << "Invalid choice. (Enter a single character)" << endl;
+		else if( choice=="1" )
+			currentUser.viewKin();
+		else if( choice=="2" )
+			cout << "Not implemented yet." << endl;	
 
+		else if( choice=="3" )
+			cout << "Not implemented yet." << endl;	
+
+		else if( choice=="4" )
+			cout << "Not implemented yet." << endl;	
+
+		else if( choice=="5" )
+			cout << "Not implemented yet." << endl;	
+
+		else if( choice=="6" )
+			cout << "Not implemented yet." << endl;	
+
+		else
+			cout << "Invalid choice. " << endl;
 	}
 
 
@@ -201,7 +231,6 @@ using namespace std;
 						(*target).addFriend(temp);
 						break;
 				}	
-				
 					
 				connectionCount--;	
 			}
