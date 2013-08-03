@@ -32,8 +32,9 @@ using namespace std;
 		cout << "\t What would you like to do?" << endl;
 		cout << "\t\t|1. Log in\n";
 		cout << "\t\t|2. Show all users\n";
-		cout << "\t\t|3. Quit\n";
-		cout << "\t\t|4. Dance\n";
+		cout << "\t\t|3. Check if two users are connected\n";
+		cout << "\t\t|4. Quit\n";
+		cout << "\t\t|5. Dance\n";
 	
 		while(running) {
 			
@@ -74,12 +75,16 @@ using namespace std;
 				listUsers();
 			}
 
-			else if (choice == "3") {
+			else if (choice == "3"){
+				cout << "Not implemented yet." << endl;
+			}
+
+			else if (choice == "4") {
 				cout << "Thank you for using FriendFace." << endl;
 				running = 0;
 			}
 
-			else if (choice == "4"){
+			else if (choice == "5"){
 				cout << "<('o'<) " << endl;
 				sleep(1);
 				cout << "^( '-' )^ " << endl;
@@ -110,8 +115,7 @@ using namespace std;
 		cout << endl;
 		cout << "\tLog in Menu" << endl;
 		cout << "\t\t|1. Get suggested friends" << endl;
-		cout << "\t\t|2. Check if two people are connected" << endl;
-		cout << "\t\t|3. Show all non-mutual connections" << endl;
+		cout << "\t\t|2. Show all non-mutual connections" << endl;
 
 	}
 
