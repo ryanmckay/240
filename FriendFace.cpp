@@ -133,12 +133,12 @@ using namespace std;
 		cout << "\t\t|7. Log out and return to main menu" << endl;
 		cout << "\t\t|8. Log out and quit" << endl;
 		
-		cout << "Input: ";
-		getline(cin,choice);
-
 		int loggedIn = 1;
 
 		while(loggedIn){
+			cout << "Input: ";
+			getline(cin,choice);
+
 			if(choice.size()>1)
 				cout << "Invalid choice. (Enter a single character)" << endl;
 			else if( choice=="1" )
@@ -254,6 +254,7 @@ using namespace std;
 						(*target).addKin(temp);
 						break;
 					default :
+						cout << "Friend added to " << temp << endl;
 						(*target).addFriend(temp);
 						break;
 				}	
