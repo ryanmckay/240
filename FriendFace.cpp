@@ -16,6 +16,90 @@ using namespace std;
 	}
 
 
+/* PUBLIC METHODS ========================================================== */
+	
+	/* Display menu after FriendFace object is set up */
+	void FriendFace::menuCall() {
+		int running=1, found=0;
+		string choice;
+		string currentUser;
+
+		cout << endl << endl;
+		cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
+		cout << "             Welcome to FriendFace(patent pending)                  " << endl;
+		cout << "         You have been selected for pre-alpha testing.              " << endl;
+		cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
+		cout << "\t What would you like to do?" << endl;
+		cout << "\t\t|1. Log in\n";
+		cout << "\t\t|2. Show all users\n";
+		cout << "\t\t|3. Quit\n";
+		cout << "\t\t|4. Dance\n";
+	
+		while(running) {
+			
+			cout << endl << "Input: ";
+			getline(cin, choice);
+			cout << "Choice: " << choice << endl;	
+			cout << endl;
+
+			if (choice.size() > 1)
+				cout << "Invalid input." << endl;
+			
+			else if (choice.size() == 0)
+				cout << "No input given." << endl;
+			
+			else if (choice == "1"){
+				cout << "Enter q to quit." << endl;
+				cout << "Name: ";
+				getline(cin, currentUser);
+				if(currentUser == "q")
+					running = 0;
+				else {
+					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end()) {
+						
+					}
+
+				cout << "Logged in as: " << currentUser << endl;
+			}
+			
+			else if (choice == "2"){
+				cout << "*Currently Registered Users*" << endl;
+				listUsers();
+			}
+
+			else if (choice == "3") {
+				cout << "Thank you for using FriendFace." << endl;
+				running = 0;
+			}
+
+			else if (choice == "4"){
+				cout << "<('o'<) " << endl;
+				sleep(1);
+				cout << "^( '-' )^ " << endl;
+				sleep(1);
+				cout << "(>‘o’)> " << endl;
+				sleep(1);
+				cout << "v( ‘.’ )v " << endl;
+				sleep(1);
+				cout << "<(' .' )> " << endl;
+				sleep(1);
+				cout << "<('.'<) " << endl;
+				sleep(1);
+				cout << "^( '.' )^ " << endl;
+				sleep(1);
+				cout << "(>‘.’)> " << endl;
+				sleep(1);
+				cout << "v( ‘.’ )v " << endl;
+				sleep(1);
+				cout << "<('.' )> " << endl;
+				cout << endl;
+				cout << "Rock on." << endl;
+				running = 0;
+			}	
+		}
+	}
+
+
 /* PRIVATE METHODS ========================================================= */
 
 	/* File parsing and set up user vector */
@@ -105,86 +189,6 @@ using namespace std;
 		}
 	}
 	
-	void FriendFace::menuCall() {
-		int running = 1;
-		string choice;
-		string currentUser;
-
-		cout << endl << endl;
-		cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
-		cout << "             Welcome to FriendFace(patent pending)                  " << endl;
-		cout << "         You have been selected for pre-alpha testing.              " << endl;
-		cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
-		cout << "\t What would you like to do?" << endl;
-		cout << "\t\t|1. Log in\n";
-		cout << "\t\t|2. Show all users\n";
-		cout << "\t\t|3. Quit\n";
-		cout << "\t\t|4. Dance\n";
-	
-		while(running) {
-			
-			cout << endl << "Input: ";
-			getline(cin, choice);
-			cout << "Choice: " << choice << endl;	
-			cout << endl;
-
-			if (choice.size() > 1)
-				cout << "Invalid input." << endl;
-			
-			else if (choice.size() == 0)
-				cout << "No input given." << endl;
-			
-			else if (choice == "1"){
-				/*code for login*/
-				/*need to not allow non registered users to log in*/
-				cout << "Enter q to quit." << endl;
-				cout << "Name: ";
-				getline(cin, currentUser);
-				if(currentUser == "q")
-					running = 0;
-
-				bool found = 0;
-
-
-				cout << "Logged in as: " << currentUser << endl;
-			}
-			
-			else if (choice == "2"){
-				cout << "*Currently Registered Users*" << endl;
-				listUsers();
-			}
-
-			else if (choice == "3") {
-				cout << "Thank you for using FriendFace." << endl;
-				running = 0;
-			}
-
-			else if (choice == "4"){
-				cout << "<('o'<) " << endl;
-				sleep(1);
-				cout << "^( '-' )^ " << endl;
-				sleep(1);
-				cout << "(>‘o’)> " << endl;
-				sleep(1);
-				cout << "v( ‘.’ )v " << endl;
-				sleep(1);
-				cout << "<(' .' )> " << endl;
-				sleep(1);
-				cout << "<('.'<) " << endl;
-				sleep(1);
-				cout << "^( '.' )^ " << endl;
-				sleep(1);
-				cout << "(>‘.’)> " << endl;
-				sleep(1);
-				cout << "v( ‘.’ )v " << endl;
-				sleep(1);
-				cout << "<('.' )> " << endl;
-				cout << endl;
-				cout << "Rock on." << endl;
-				running = 0;
-			}	
-		}
-	}
 
 /* HELPER METHODS ========================================================= */
 
