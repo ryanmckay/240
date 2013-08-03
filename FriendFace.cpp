@@ -2,6 +2,7 @@
 #include <iostream> // for file parsing
 #include <sstream> // converting from str to numbers
 #include <unistd.h>
+#include <queue>
 using namespace std;
 
 /* NOTES
@@ -131,7 +132,7 @@ using namespace std;
 		cout << "\t\t|5. Get suggested friends" << endl;
 		cout << "\t\t|6. Show all non-mutual connections" << endl;
 		cout << "\t\t|7. Log out and return to main menu" << endl;
-		cout << "\t\t|8. Log out and quit" << endl;
+		cout << "\t\t|8. Log out and quit" << endl << endl;
 		
 		int loggedIn = 1;
 
@@ -263,6 +264,10 @@ using namespace std;
 			}
 			userCount--;
 		}
+	}
+
+	void FriendFace::suggested(){
+		
 	}
 	
 
