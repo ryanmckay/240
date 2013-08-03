@@ -151,7 +151,7 @@ using namespace std;
 				currentUser.viewKin();
 		
 			else if( choice=="4" )
-				cout << "Not implemented yet." << endl;	
+				currentUser.viewCoworkers();	
 
 			else if( choice=="5" )
 				cout << "Not implemented yet." << endl;	

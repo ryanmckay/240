@@ -18,40 +18,53 @@ using namespace std;
 	}
 
 	void User::viewAll(){
-		cout << "Family connection(s)" << endl;
 		viewKin();
 		cout << endl;
 		
-		cout << "Friend connection(s)" << endl;
 		viewFriends();
 		cout << endl;
 
-		cout << "Co-Worker connection(s)" << endl;
 		viewCoworkers();
 		cout << endl;
 
 	}
 
 	void User::viewKin(){
+		int count = 0;
+		cout << "Family connection(s)" << endl;
 		for(vector<string>::iterator it = kin.begin(); it != kin.end(); it++){
 			cout << kin.at(it-kin.begin()) << endl;
+			count ++;
 		}
-
+		if(!count)
+			cout << "None." << endl;
+		cout << endl;
 	}
 
 	void User::viewFriends(){
+		int count = 0;
+		cout << "Friend connection(s)" << endl;
 		for(vector<string>::iterator it = friends.begin(); it != friends.end(); it++){
 			cout << friends.at(it-friends.begin()) << endl;
+			count++;
 		}
-
+		if(!count)
+			cout << "None." << endl;
+		cout << endl;
 	}
 
 	void User::viewCoworkers(){
+		int count = 0;
+		cout << "Co-Worker connection(s)" << endl;
 		for(vector<string>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
 			cout << coworkers.at(it-coworkers.begin()) << endl;
+			count++;
 	    }
-
+		if(!count)
+			cout << "None." << endl;
+		cout << endl;
 	}
+
 
 	void User::addKin(string name){
 		kin.push_back(name);
