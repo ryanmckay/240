@@ -1,0 +1,435 @@
+g++ -g -std=c++0x -c -Wall FriendFace.cpp
+FriendFace.cpp: In member function ‘bool FriendFace::isConnected(User, std::string)’:
+FriendFace.cpp:350:65: error: conversion from ‘std::vector<User*>::iterator {aka __gnu_cxx::__normal_iterator<User**, std::vector<User*> >}’ to non-scalar type ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ requested
+FriendFace.cpp:350:93: error: no match for ‘operator!=’ in ‘it != user1.User::coworkers.std::vector<_Tp, _Alloc>::end<User*, std::allocator<User*> >()’
+FriendFace.cpp:350:93: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note: template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::pair<_T1, _T2>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note: template<class _Iterator> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/postypes.h:223:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:223:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::fpos<_StateT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:129:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:129:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:134:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+/usr/include/c++/4.7/bits/allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   mismatched types ‘const _CharT*’ and ‘__gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from FriendFace.h:6,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/bits/locale_facets.h:50:0,
+                 from /usr/include/c++/4.7/bits/basic_ios.h:39,
+                 from /usr/include/c++/4.7/ios:45,
+                 from /usr/include/c++/4.7/istream:40,
+                 from /usr/include/c++/4.7/fstream:40,
+                 from FriendFace.h:7,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::deque<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/queue:65:0,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note: template<class _Tp, class _Seq> bool std::operator!=(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::queue<_Tp, _Seq>’
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note: template<class _Tp> bool __gnu_cxx::operator!=(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const __gnu_cxx::new_allocator<_Tp>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   deduced conflicting types for parameter ‘_Iterator’ (‘const std::basic_string<char>*’ and ‘User**’)
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:350:93: note:   deduced conflicting types for parameter ‘_Container’ (‘std::vector<std::basic_string<char> >’ and ‘std::vector<User*>’)
+FriendFace.cpp:351:11: error: ‘const class std::basic_string<char>’ has no member named ‘name’
+FriendFace.cpp:358:59: error: conversion from ‘std::vector<User*>::iterator {aka __gnu_cxx::__normal_iterator<User**, std::vector<User*> >}’ to non-scalar type ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ requested
+FriendFace.cpp:358:81: error: no match for ‘operator!=’ in ‘it != user1.User::kin.std::vector<_Tp, _Alloc>::end<User*, std::allocator<User*> >()’
+FriendFace.cpp:358:81: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note: template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::pair<_T1, _T2>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note: template<class _Iterator> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/postypes.h:223:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:223:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::fpos<_StateT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:129:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:129:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:134:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+/usr/include/c++/4.7/bits/allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   mismatched types ‘const _CharT*’ and ‘__gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from FriendFace.h:6,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/bits/locale_facets.h:50:0,
+                 from /usr/include/c++/4.7/bits/basic_ios.h:39,
+                 from /usr/include/c++/4.7/ios:45,
+                 from /usr/include/c++/4.7/istream:40,
+                 from /usr/include/c++/4.7/fstream:40,
+                 from FriendFace.h:7,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::deque<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/queue:65:0,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note: template<class _Tp, class _Seq> bool std::operator!=(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::queue<_Tp, _Seq>’
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note: template<class _Tp> bool __gnu_cxx::operator!=(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const __gnu_cxx::new_allocator<_Tp>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   deduced conflicting types for parameter ‘_Iterator’ (‘const std::basic_string<char>*’ and ‘User**’)
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:358:81: note:   deduced conflicting types for parameter ‘_Container’ (‘std::vector<std::basic_string<char> >’ and ‘std::vector<User*>’)
+FriendFace.cpp:359:14: error: ‘const class std::basic_string<char>’ has no member named ‘name’
+FriendFace.cpp:365:63: error: conversion from ‘std::vector<User*>::iterator {aka __gnu_cxx::__normal_iterator<User**, std::vector<User*> >}’ to non-scalar type ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ requested
+FriendFace.cpp:365:89: error: no match for ‘operator!=’ in ‘it != user1.User::friends.std::vector<_Tp, _Alloc>::end<User*, std::allocator<User*> >()’
+FriendFace.cpp:365:89: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note: template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:219:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::pair<_T1, _T2>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:305:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:355:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1045:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note: template<class _Iterator> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1051:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::move_iterator<_Iterator>’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/postypes.h:223:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:223:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::fpos<_StateT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:129:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:129:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:43:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/allocator.h:134:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+/usr/include/c++/4.7/bits/allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::allocator<_CharT>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2529:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2541:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   mismatched types ‘const _CharT*’ and ‘__gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2553:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from FriendFace.h:6,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1394:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/bits/locale_facets.h:50:0,
+                 from /usr/include/c++/4.7/bits/basic_ios.h:39,
+                 from /usr/include/c++/4.7/ios:45,
+                 from /usr/include/c++/4.7/istream:40,
+                 from /usr/include/c++/4.7/fstream:40,
+                 from FriendFace.h:7,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+/usr/include/c++/4.7/bits/streambuf_iterator.h:212:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+/usr/include/c++/4.7/bits/stl_deque.h:261:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+/usr/include/c++/4.7/bits/stl_deque.h:268:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from /usr/include/c++/4.7/queue:61,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_deque.h:1955:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::deque<_Tp, _Alloc>’
+In file included from /usr/include/c++/4.7/queue:65:0,
+                 from FriendFace.cpp:5:
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note: template<class _Tp, class _Seq> bool std::operator!=(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)
+/usr/include/c++/4.7/bits/stl_queue.h:291:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const std::queue<_Tp, _Seq>’
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note: template<class _Tp> bool __gnu_cxx::operator!=(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+/usr/include/c++/4.7/ext/new_allocator.h:134:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   ‘std::vector<std::basic_string<char> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::basic_string<char>*, std::vector<std::basic_string<char> > >}’ is not derived from ‘const __gnu_cxx::new_allocator<_Tp>’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:825:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   deduced conflicting types for parameter ‘_Iterator’ (‘const std::basic_string<char>*’ and ‘User**’)
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/string:42,
+                 from FriendFace.h:5,
+                 from FriendFace.cpp:1:
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:819:5: note:   template argument deduction/substitution failed:
+FriendFace.cpp:365:89: note:   deduced conflicting types for parameter ‘_Container’ (‘std::vector<std::basic_string<char> >’ and ‘std::vector<User*>’)
+FriendFace.cpp:366:14: error: ‘const class std::basic_string<char>’ has no member named ‘name’
+make: *** [FriendFace.o] Error 1

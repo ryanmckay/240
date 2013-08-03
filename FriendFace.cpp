@@ -248,8 +248,10 @@ using namespace std;
 	void FriendFace::setup(vector<User>& userVec, string file_name) {
 		/* count is used first as totalUsers, then connectionCount for
 		each user */
-		int userCount, connectionCount;
+		int userCount, connectionCount, found=0;
+		User* currentUser, *connection;
 		string temp, temp2;
+		char type;
 		
 		cout << "Parsing file: " << file_name << "...";
 		ifstream inFile(file_name.c_str());	
@@ -290,12 +292,10 @@ using namespace std;
 			
 			//cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 			/* grab correct user object */
-			User* target;
-			int found = 0;
 			vector<User>::iterator it = userVec.begin();
 			while(!found && it!=userVec.end()) {
 				if( temp == userVec.at(it-userVec.begin()).name ) {
-					target = &userVec.at(it-userVec.begin());
+					currentUser = &userVec.at(it-userVec.begin());
 					found = 1;
 				}
 				else
@@ -303,25 +303,34 @@ using namespace std;
 			}
 			
 			/* fill the user's connection vectors */
-			char type;
 			while( connectionCount > 0 ) {
 				/* temp holds connectionName, temp2 a char for connection Type */
 				getline(inFile,temp,',');
 				getline(inFile,temp2);
 				trim(temp2);
 				type = temp2.at(0);
-			
 				
+				found = 0;
+				vector<User>::iterator it = userVec.begin();
+				while(!found && it!=userVec.end()) {
+				if( temp == userVec.at(it-userVec.begin()).name ) {
+					connection = &userVec.at(it-userVec.begin());
+					found = 1;
+				}
+				else
+					it++;
+																								}
+
 				switch(type) {
 					case 'C' :
-						(*target).addCoworker(temp);
+						(*currentUser).addCoworker(connection);
 						break;
 					case 'K' :
-						(*target).addKin(temp);
+						(*currentUser).addKin(connection);
 						break;
 					default :
 						cout << "Friend added to " << temp << endl;
-						(*target).addFriend(temp);
+						(*currentUser).addFriend(connection);
 						break;
 				}	
 					
@@ -338,23 +347,23 @@ using namespace std;
 	bool FriendFace::isConnected(User user1, string user2){
 		int found = 0;
 		
-		for(vector<string>::const_iterator it = user1.coworkers.begin(); it !=user1.coworkers.end(); it++){
-			if(*it == user2){
+		for(vector<User*>::iterator it = user1.coworkers.begin(); it !=user1.coworkers.end(); it++){
+			if((*it)->name == user2){
 				found = 1;
 				break;
 			}
 			
 		}
 		
-		for(vector<string>::const_iterator it = user1.kin.begin(); it !=user1.kin.end(); it++){
-	    	if(*it == user2){
+		for(vector<User*>::iterator it = user1.kin.begin(); it !=user1.kin.end(); it++){
+	    	if((*it)->name == user2){
 				found = 1;
 				break;
 			}
 		}
 
-		for(vector<string>::const_iterator it = user1.friends.begin(); it !=user1.friends.end(); it++){
-	    	if(*it == user2){
+		for(vector<User*>::iterator it = user1.friends.begin(); it !=user1.friends.end(); it++){
+	    	if((*it)->name == user2){
 				found = 1;
 				break;
 			}

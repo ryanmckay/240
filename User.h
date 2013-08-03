@@ -23,9 +23,9 @@ public:
 	
 	std::string name;
 	int connections;
-	std::vector<std::string> kin;
-	std::vector<std::string> friends;
-	std::vector<std::string> coworkers;
+	std::vector<User*> kin;
+	std::vector<User*> friends;
+	std::vector<User*> coworkers;
 
 /* METHODS */
 	
@@ -43,11 +43,11 @@ public:
 	
 	void viewCoworkers();
 
-	void addKin(std::string name);
+	void addKin(User* connection);
 
-	void addFriend(std::string name);
+	void addFriend(User* connection);
 
-	void addCoworker(std::string name);
+	void addCoworker(User* connection);
 
 };
 

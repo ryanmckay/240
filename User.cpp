@@ -32,8 +32,8 @@ using namespace std;
 	void User::viewKin(){
 		int count = 0;
 		cout << "Family connection(s)" << endl;
-		for(vector<string>::iterator it = kin.begin(); it != kin.end(); it++){
-			cout << kin.at(it-kin.begin()) << endl;
+		for(vector<User*>::iterator it = kin.begin(); it != kin.end(); it++){
+			cout << kin.at(it-kin.begin())->name << endl;
 			count ++;
 		}
 		if(!count)
@@ -44,8 +44,8 @@ using namespace std;
 	void User::viewFriends(){
 		int count = 0;
 		cout << "Friend connection(s)" << endl;
-		for(vector<string>::iterator it = friends.begin(); it != friends.end(); it++){
-			cout << friends.at(it-friends.begin()) << endl;
+		for(vector<User*>::iterator it = friends.begin(); it != friends.end(); it++){
+			cout << friends.at(it-friends.begin())->name << endl;
 			count++;
 		}
 		if(!count)
@@ -56,8 +56,8 @@ using namespace std;
 	void User::viewCoworkers(){
 		int count = 0;
 		cout << "Co-Worker connection(s)" << endl;
-		for(vector<string>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
-			cout << coworkers.at(it-coworkers.begin()) << endl;
+		for(vector<User*>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
+			cout << coworkers.at(it-coworkers.begin())->name << endl;
 			count++;
 	    }
 		if(!count)
@@ -66,14 +66,14 @@ using namespace std;
 	}
 
 
-	void User::addKin(string name){
-		kin.push_back(name);
+	void User::addKin(User* connection){
+		kin.push_back(connection);
 	}
 
-	void User::addFriend(string name){
-		friends.push_back(name);
+	void User::addFriend(User* connection){
+		friends.push_back(connection);
 	}
 
-	void User::addCoworker(string name){
-		coworkers.push_back(name);
+	void User::addCoworker(User* connection){
+		coworkers.push_back(connection);
 	}
