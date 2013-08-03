@@ -55,13 +55,17 @@ using namespace std;
 				if(currentUser == "q")
 					running = 0;
 				else {
-					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end()) {
-						
+					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++) {
+						if(currentUser==userVec.at(it-userVec.begin()).name)
+							found = 1;	
 					}
-
-				cout << "Logged in as: " << currentUser << endl;
+				}
+				if(found)
+					cout << "Logged in as: " << currentUser << endl;
+				else
+					cout << "User not found." << endl;			
 			}
-			
+
 			else if (choice == "2"){
 				cout << "*Currently Registered Users*" << endl;
 				listUsers();
