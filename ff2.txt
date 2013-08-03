@@ -1,0 +1,28 @@
+3
+Alice
+Bob
+Carl
+Alice, 1
+Bob, F
+Bob, 1
+Carl, F
+Carl, 1
+Bob, F3
+Alice
+Bob
+Carl
+Alice, 1
+Bob, F
+Bob, 1
+Carl, F
+Carl, 1
+Bob, F3
+Alice
+Bob
+Carl
+Alice, 1
+Bob, F
+Bob, 1
+Carl, F
+Carl, 1
+Bob, F

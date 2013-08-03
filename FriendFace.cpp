@@ -352,6 +352,9 @@ using namespace std;
 				found = 1;
 				break;
 			}
+			else
+				//need first param to be a User type
+				isConnected(**it, user2);
 			
 		}
 		
@@ -360,6 +363,9 @@ using namespace std;
 				found = 1;
 				break;
 			}
+			else
+				isConnected(**it, user2);
+
 		}
 
 		for(vector<User*>::iterator it = user1.friends.begin(); it !=user1.friends.end(); it++){
@@ -367,6 +373,9 @@ using namespace std;
 				found = 1;
 				break;
 			}
+			else
+				isConnected(**it, user2);
+
 		}
 		
 	
