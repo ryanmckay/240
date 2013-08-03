@@ -41,14 +41,14 @@ using namespace std;
 
 	void User::viewFriends(){
 		for(vector<string>::iterator it = friends.begin(); it != friends.end(); it++){
-			cout << friends.at(it-kin.begin()) << endl;
+			cout << friends.at(it-friends.begin()) << endl;
 		}
 
 	}
 
 	void User::viewCoworkers(){
 		for(vector<string>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
-			cout << coworkers.at(it-kin.begin()) << endl;
+			cout << coworkers.at(it-friends.begin()) << endl;
 	    }
 
 	}
