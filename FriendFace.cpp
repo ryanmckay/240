@@ -129,13 +129,14 @@ using namespace std;
 		if(choice.size()>1)
 			cout << "Invalid choice. (Enter a single character)" << endl;
 		else if( choice=="1" )
-			currentUser.viewKin();
+			currentUser.viewAll();
+
 		else if( choice=="2" )
-			cout << "Not implemented yet." << endl;	
+			currentUser.viewFriends();
 
 		else if( choice=="3" )
-			cout << "Not implemented yet." << endl;	
-
+			currentUser.viewKin();
+		
 		else if( choice=="4" )
 			cout << "Not implemented yet." << endl;	
 
