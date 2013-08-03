@@ -85,8 +85,73 @@ using namespace std;
 
 			/* Check if two users are connected */
 			else if (choice == "3"){
-				cout << "Not implemented yet." << endl;
-			}
+				string user1str;
+				string user2str;
+				User* user1;
+				User* user2;
+				int found1 = 0;
+				int found2 = 0;
+				int same = 0;
+				cout << "Enter users to check.\n";								  				  while(!found1){
+					cout << "First user: ";
+					getline(cin, user1str);
+					
+					if(user1str == "q")
+						menuCall();
+					else{
+						for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++){
+							if(user1str==userVec.at(it-userVec.begin()).name){
+								user1 = &userVec.at(it-userVec.begin());
+								found1 = 1;
+								break;
+							}
+						}
+					}
+					if(!found1)
+						cout << "User not found." << endl << endl;
+			    }//end of found1 loop
+				
+				while(!found2 && !same){
+			  		cout << "Second user: ";
+					getline(cin, user2str);
+				
+					if(user2str == "q")
+						menuCall();
+					
+					else{
+						for(vector<User>::iterator it= userVec.begin(); it != userVec.end(); it++){
+							if(user2str==userVec.at(it-userVec.begin()).name){
+								user2 = &userVec.at(it-userVec.begin());
+								if(user1 == user2){
+									same = 1;
+								}
+								else{
+									found2 = 1;
+									same = 0;
+									break;
+								}
+							}
+						}
+			  		}
+					if(!found2 && same)
+						cout << "Error: Can't compare user to itself." << endl;
+					else if(!found2)
+						cout << "User not found." << endl << endl;
+				
+				same = 0;
+				}//end of found2 loop  
+
+				cout << "User1: " << user1str << endl;
+				cout << "User2: " << user2str << endl;
+				cout << "And now to actually check..." << endl;
+
+				if(isConnected(*user1, user2str)){
+					cout << "These two users are connected." << endl;
+				}
+				else
+					cout << "These two users are not connected." << endl;
+
+			}//end of choice 3
 
 			/* Quit */
 			else if (choice == "4") {
@@ -270,6 +335,34 @@ using namespace std;
 		
 	}
 	
+	bool FriendFace::isConnected(User user1, string user2){
+		int found = 0;
+		
+		for(vector<string>::const_iterator it = user1.coworkers.begin(); it !=user1.coworkers.end(); it++){
+			if(*it == user2){
+				found = 1;
+				break;
+			}
+			
+		}
+		
+		for(vector<string>::const_iterator it = user1.kin.begin(); it !=user1.kin.end(); it++){
+	    	if(*it == user2){
+				found = 1;
+				break;
+			}
+		}
+
+		for(vector<string>::const_iterator it = user1.friends.begin(); it !=user1.friends.end(); it++){
+	    	if(*it == user2){
+				found = 1;
+				break;
+			}
+		}
+		
+	
+		return found;
+	}	
 
 /* HELPER METHODS ========================================================= */
 
