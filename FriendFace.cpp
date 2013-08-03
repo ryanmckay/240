@@ -41,7 +41,6 @@ using namespace std;
 			
 			cout << endl << "Input: ";
 			getline(cin, choice);
-			cout << "Choice: " << choice << endl;	
 			cout << endl;
 
 			if (choice.size() > 1)
@@ -56,12 +55,14 @@ using namespace std;
 				cout << "Name: ";
 				getline(cin, currentUserName);
 				if(currentUserName == "q")
-					running = 0;
+					menuCall();
 				else {
 					for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++) {
-						if(currentUserName==userVec.at(it-userVec.begin()).name)
+						if(currentUserName==userVec.at(it-userVec.begin()).name){
 							currentUser = &userVec.at(it-userVec.begin());
-							found = 1;	
+							found = 1;
+							break;	
+						}
 					}
 				}
 				if(found){
@@ -87,28 +88,29 @@ using namespace std;
 			else if (choice == "4") {
 				cout << "Thank you for using FriendFace." << endl;
 				running = 0;
+				exit(-1);
 			}
 
 			else if (choice == "5"){
-				cout << "<('o'<) " << endl;
+				cout << "<('o'<) " << endl << endl;
 				sleep(1);
-				cout << "^( '-' )^ " << endl;
+				cout << "^( '-' )^ " << endl << endl;
 				sleep(1);
-				cout << "(>‘o’)> " << endl;
+				cout << "(>‘o’)> " << endl << endl;
 				sleep(1);
-				cout << "v( ‘.’ )v " << endl;
+				cout << "v( ‘.’ )v " << endl << endl;
 				sleep(1);
-				cout << "<(' .' )> " << endl;
+				cout << "<(' .' )> " << endl << endl;
 				sleep(1);
-				cout << "<('.'<) " << endl;
+				cout << "<('.'<) " << endl << endl;
 				sleep(1);
-				cout << "^( '.' )^ " << endl;
+				cout << "^( '.' )^ " << endl  << endl;
 				sleep(1);
-				cout << "(>‘.’)> " << endl;
+				cout << "(>‘.’)> " << endl << endl;
 				sleep(1);
-				cout << "v( ‘.’ )v " << endl;
+				cout << "v( ‘.’ )v " << endl << endl;
 				sleep(1);
-				cout << "<('.' )> " << endl;
+				cout << "<('.' )> " << endl << endl;
 				cout << endl;
 				cout << "Rock on." << endl;
 			}	
@@ -125,31 +127,51 @@ using namespace std;
 		cout << "\t\t|4. Show all coworkers" << endl; 
 		cout << "\t\t|5. Get suggested friends" << endl;
 		cout << "\t\t|6. Show all non-mutual connections" << endl;
-		getline(cin,choice);
-		if(choice.size()>1)
-			cout << "Invalid choice. (Enter a single character)" << endl;
-		else if( choice=="1" )
-			currentUser.viewAll();
-
-		else if( choice=="2" )
-			currentUser.viewFriends();
-
-		else if( choice=="3" )
-			currentUser.viewKin();
+		cout << "\t\t|7. Log out and return to main menu" << endl;
+		cout << "\t\t|8. Log out and quit" << endl;
 		
-		else if( choice=="4" )
-			cout << "Not implemented yet." << endl;	
+		cout << "Input: ";
+		getline(cin,choice);
 
-		else if( choice=="5" )
-			cout << "Not implemented yet." << endl;	
+		int loggedIn = 1;
 
-		else if( choice=="6" )
-			cout << "Not implemented yet." << endl;	
+		while(loggedIn){
+			if(choice.size()>1)
+				cout << "Invalid choice. (Enter a single character)" << endl;
+			else if( choice=="1" )
+				currentUser.viewAll();
 
-		else
-			cout << "Invalid choice. " << endl;
-	}
+			else if( choice=="2" )
+				currentUser.viewFriends();
 
+			else if( choice=="3" )
+				currentUser.viewKin();
+		
+			else if( choice=="4" )
+				cout << "Not implemented yet." << endl;	
+
+			else if( choice=="5" )
+				cout << "Not implemented yet." << endl;	
+
+			else if( choice=="6" )
+				cout << "Not implemented yet." << endl;
+				
+			else if( choice=="7" ){
+				loggedIn = 0;
+				menuCall();	
+			}
+
+			else if( choice=="8" ){
+				loggedIn = 0;
+				cout << "Thank you for using FriendFinder." << endl;
+				cout << "Goodbye." << endl;
+				exit(-1);
+			}
+
+			else
+				cout << "Invalid choice. " << endl;
+		}
+	}	
 
 /* PRIVATE METHODS ========================================================= */
 
