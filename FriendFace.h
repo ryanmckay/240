@@ -32,7 +32,7 @@ class FriendFace{
 
 		void getSuggestions();
 
-		bool isConnected(User user1, std::string user2);
+		bool isConnected(User& user1, std::string user2);
 
 		void nonMutual();
 
