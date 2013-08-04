@@ -109,7 +109,7 @@ void User::nonMutual() {
 				it++;
 		}
 		if(!isKin) {
-			cout << (*it)->name << " has not added " << name << " as a friend." << endl;
+			cout << (*it)->name << " has not added " << name << " as family." << endl;
 		}
 	}
 	for(vector<User*>::iterator it = coworkers.begin() ; it != coworkers.end() ; it++) {
@@ -124,7 +124,7 @@ void User::nonMutual() {
 				it++;
 		}
 		if(!isCoworker) {
-			cout << (*it)->name << " has not added " << name << " as a friend." << endl;
+			cout << (*it)->name << " has not added " << name << " as a coworker." << endl;
 		}
 	}
 
