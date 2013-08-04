@@ -206,7 +206,7 @@ void FriendFace::loginMenu(User& currentUser){
 			cout << "Not implemented yet." << endl;	
 
 		else if( choice=="6" )
-			cout << "Not implemented yet." << endl;
+			currentUser.nonMutual();
 
 		else if( choice=="7" ){
 			loggedIn = 0;
