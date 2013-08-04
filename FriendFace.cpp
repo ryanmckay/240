@@ -166,6 +166,31 @@ void FriendFace::menuCall() {
 			running = 0;
 			exit(-1);
 		}
+
+
+		else if (choice == "5"){
+			cout << "<('o'<) " << endl << endl;
+			sleep(1);
+			cout << "^( '-' )^ " << endl << endl;
+			sleep(1);
+			cout << "(>‘o’)> " << endl << endl;
+			sleep(1);
+			cout << "v( ‘.’ )v " << endl << endl;
+			sleep(1);
+			cout << "<(' .' )> " << endl << endl;
+			sleep(1);
+			cout << "<('.'<) " << endl << endl;
+			sleep(1);
+			cout << "^( '.' )^ " << endl  << endl;
+			sleep(1);
+			cout << "(>‘.’)> " << endl << endl;
+			sleep(1);
+			cout << "v( ‘.’ )v " << endl << endl;
+			sleep(1);
+			cout << "<('.' )> " << endl << endl;
+			cout << endl;
+			cout << "Rock on." << endl;
+		}	
 	}
 }
 
@@ -251,13 +276,13 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 	stringstream ss(temp);
 	ss >> userCount;
 	cout << "total users: " << userCount << endl;
-	
+
 	for( int i=0 ; i < userCount ; i++ ) {
 		getline(inFile,temp);
 		User u = User(temp);
 		userVec.push_back(u);	
 	}
-	
+
 	/* Start filling each user's connections */
 	while( userCount > 0 ) {
 		getline(inFile,temp,',');
