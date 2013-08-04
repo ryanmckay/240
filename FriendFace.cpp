@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <queue>
 using namespace std;
-
+int cCount = 0;//global var needed for isConnected. leave for now.
 /* NOTES
 
 
@@ -146,12 +146,12 @@ void FriendFace::menuCall() {
 			cout << "User2: " << user2str << endl;
 			cout << "And now to actually check..." << endl;
 
-/*			cout << "connections: ";
-			/(&user1->getConnections());
-			cout << "connections of user 1....: ";
-			cout << user1->getConnections();//doesn't work
-			cout << endl;
-*/
+			/*			cout << "connections: ";
+						/(&user1->getConnections());
+						cout << "connections of user 1....: ";
+						cout << user1->getConnections();//doesn't work
+						cout << endl;
+			 */
 			if(isConnected(*user1, user2str)){
 				cout << "These two users are connected." << endl;
 			}
@@ -296,12 +296,12 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		ss.str(temp2);
 		ss >> connectionCount;
 
-	//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
+		//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 		/* grab correct user object */
 		found = 0;
 		vector<User>::iterator it = userVec.begin();
 		while(!found && it!=userVec.end()) {
-	//		cout << "hit2" << endl;
+			//		cout << "hit2" << endl;
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
 				currentUser->connections = connectionCount;
@@ -339,7 +339,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 					(*currentUser).addKin(connection);
 					break;
 				default :
-	//				cout << "Friend added to " << temp << endl;
+					//				cout << "Friend added to " << temp << endl;
 					(*currentUser).addFriend(connection);
 					break;
 			}	
@@ -356,61 +356,50 @@ void FriendFace::suggested(){
 
 bool FriendFace::isConnected(User& user1, string user2){
 	int found = 0;
-	//cout << "test." << endl;//this prints
-	//vector<User>::iterator it = userVec.begin();
 	vector<User*>::iterator it;
-	int count = 0;
-	//while(it != userVec.end()){
-	cout << "fhfhfhf: ";
-	cout << user1.getConnections() << endl;	
-	while((count != user1.getConnections())&&(!found)){	
+	cout << "count: " << cCount << endl;
+
+	if(!found && cCount !=user1.getConnections()){
 		for(it = user1.coworkers.begin(); it !=user1.coworkers.end() ; it++){
 			cout << "current user: " << (*it)->name << endl;
+			cout << "current count in loop: " << cCount << endl;
 			if((*it)->name == user2){
 				cout << "found it." << endl;
 				found = 1;
 				break;
 			}
-
-			else{
-				if(it!=user1.coworkers.end())
-					isConnected(**it, user2);
-			}
+			cCount++;
 		}
-
-
-		if(!found){
-			for(it = user1.kin.begin(); it !=user1.kin.end(); it++){
-				cout << "current user 2: " << (*it)->name << endl;
-				if((*it)->name == user2){
-					found = 1;
-					break;
-				}
-
-				else{
-					if(it!=user1.kin.end())
-						isConnected(**it, user2);
-				}
-
-			}
-
-			for(it = user1.friends.begin(); it !=user1.friends.end(); it++){
-				cout << "current user 3: " << (*it)->name << endl;
-				if((*it)->name == user2){
-					found = 1;
-					break;
-				}
-
-				else{
-					if(it!=user1.friends.end())
-						isConnected(**it, user2);
-				}
-
-			}	
-		}
-		count++;	
 	}
-	return found;
+
+	if(!found && cCount!=user1.getConnections()){
+		for(it = user1.kin.begin(); it !=user1.kin.end(); it++){
+			cout << "current user 2: " << (*it)->name << endl;
+
+			if((*it)->name == user2){
+				found = 1;
+				break;
+			}
+			cCount++;
+		}
+	}
+
+	if(!found && cCount!=user1.getConnections()){
+		for(it = user1.friends.begin(); it !=user1.friends.end(); it++){
+			cout << "current user 3: " << (*it)->name << endl;
+			if((*it)->name == user2){
+				found = 1;
+				break;
+			}
+			cCount++;
+		}
+	}
+	
+	if(!found && cCount !=user1.getConnections()){
+		isConnected(**it, user2);
+	}
+
+return found;
 }	
 
 /* HELPER METHODS ========================================================= */
