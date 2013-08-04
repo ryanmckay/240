@@ -160,13 +160,14 @@ void FriendFace::menuCall() {
 
 		}//end of choice 3
 
+<<<<<<< Updated upstream
 		/* Quit */
 		else if (choice == "4") {
 			cout << "Thank you for using FriendFace." << endl;
 			running = 0;
 			exit(-1);
 		}
-	}
+=======
 	void FriendFace::loginMenu(User& currentUser){
 		string choice;
 		cout << endl;
@@ -210,6 +211,7 @@ void FriendFace::menuCall() {
 				loggedIn = 0;
 				menuCall();	
 			}
+>>>>>>> Stashed changes
 
 		else if (choice == "5"){
 			cout << "<('o'<) " << endl << endl;
@@ -295,6 +297,7 @@ void FriendFace::loginMenu(User& currentUser){
 
 /* PRIVATE METHODS ========================================================= */
 
+<<<<<<< Updated upstream
 /* File parsing and set up user vector */
 void FriendFace::setup(vector<User>& userVec, string file_name) {
 	/* count is used first as totalUsers, then connectionCount for
@@ -323,6 +326,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 	/* Create a user object for each user.
 	   We will fill in their connections after. */
 	for( int i=0 ; i < userCount ; i++ ) {
+=======
 	/* File parsing and set up user vector */
 	void FriendFace::setup(vector<User>& userVec, string file_name) {
 		int userCount, connectionCount, found=0;
@@ -341,6 +345,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		cout << "OK." << endl;	
 	
 		/* Get first line, check # of users */
+>>>>>>> Stashed changes
 		getline(inFile,temp);
 		User u = User(temp);
 		userVec.push_back(u);	
@@ -468,10 +473,19 @@ bool FriendFace::isConnected(User& user1, string user2){
 
 			}	
 		}
+<<<<<<< Updated upstream
 		count++;	
 	}
 	return found;
 }	
+=======
+		
+	
+		return found;
+	}
+	
+
+>>>>>>> Stashed changes
 
 /* HELPER METHODS ========================================================= */
 
@@ -489,4 +503,5 @@ void FriendFace::listUsers() {
 		cout << userVec.at(it-userVec.begin()).name << endl;
 	}
 }
+
 

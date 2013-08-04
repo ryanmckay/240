@@ -48,7 +48,8 @@ public:
 	void addFriend(User* connection);
 
 	void addCoworker(User* connection);
-
+	
+	void nonMutual();
 };
 
 #endif
