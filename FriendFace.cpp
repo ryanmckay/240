@@ -296,13 +296,16 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		ss.str(temp2);
 		ss >> connectionCount;
 
-		//cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
+	//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 		/* grab correct user object */
+		found = 0;
 		vector<User>::iterator it = userVec.begin();
 		while(!found && it!=userVec.end()) {
+	//		cout << "hit2" << endl;
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
-				currentUser->connections = 0;
+				currentUser->connections = connectionCount;
+				cout << "grabbed " << currentUser->name << endl;
 				found = 1;
 			}
 			else
@@ -336,7 +339,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 					(*currentUser).addKin(connection);
 					break;
 				default :
-					cout << "Friend added to " << temp << endl;
+	//				cout << "Friend added to " << temp << endl;
 					(*currentUser).addFriend(connection);
 					break;
 			}	
@@ -344,6 +347,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			connectionCount--;	
 		}
 		userCount--;
+		cout << "usercount: " << userCount << endl;
 	}
 }
 void FriendFace::suggested(){
