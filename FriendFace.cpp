@@ -294,8 +294,12 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		ss.clear();
 
 		ss.str(temp2);
+		if(!isdigit(temp2[0])) {
+			cout << "Error detected in input file. Terminating" << endl;
+			exit(-1);
+		}
 		ss >> connectionCount;
-
+		
 		//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 		/* grab correct user object */
 		found = 0;
@@ -312,7 +316,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 				it++;
 		}
 
-		/* fill the user's connection vectors */
+		/* fill the grabbed user's connection vectors */
 		while( connectionCount > 0 ) {
 			/* temp holds connectionName, temp2 a char for connection Type */
 			getline(inFile,temp,',');
