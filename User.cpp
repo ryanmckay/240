@@ -9,6 +9,7 @@ using namespace std;
 
 User::User(string _name){
 	name = _name;
+	connections = 0;
 }
 
 /*fill in other values after file read?*/

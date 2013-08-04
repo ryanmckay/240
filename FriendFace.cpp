@@ -146,12 +146,12 @@ void FriendFace::menuCall() {
 			cout << "User2: " << user2str << endl;
 			cout << "And now to actually check..." << endl;
 
-			cout << "connections: ";
-			//*(&user1->getConnections());
+/*			cout << "connections: ";
+			/(&user1->getConnections());
 			cout << "connections of user 1....: ";
 			cout << user1->getConnections();//doesn't work
 			cout << endl;
-
+*/
 			if(isConnected(*user1, user2str)){
 				cout << "These two users are connected." << endl;
 			}
@@ -302,7 +302,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		while(!found && it!=userVec.end()) {
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
-				currentUser->connections = connectionCount;
+				currentUser->connections = 0;
 				found = 1;
 			}
 			else
