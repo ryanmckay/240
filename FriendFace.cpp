@@ -145,7 +145,7 @@ void FriendFace::menuCall() {
 			cout << "User1: " << user1str << endl;
 			cout << "User2: " << user2str << endl;
 			cout << "And now to actually check..." << endl;
-			
+
 			cout << "connections: ";
 			//*(&user1->getConnections());
 			cout << "connections of user 1....: ";
@@ -166,74 +166,6 @@ void FriendFace::menuCall() {
 			running = 0;
 			exit(-1);
 		}
-	}
-	void FriendFace::loginMenu(User& currentUser){
-		string choice;
-		cout << endl;
-		cout << "\tLog in Menu" << endl;
-		cout << "\t\t|1. Show all connections" << endl;
-		cout << "\t\t|2. Show all friends" << endl;
-		cout << "\t\t|3. Show all family" << endl;
-		cout << "\t\t|4. Show all coworkers" << endl; 
-		cout << "\t\t|5. Get suggested friends" << endl;
-		cout << "\t\t|6. Show all non-mutual connections" << endl;
-		cout << "\t\t|7. Log out and return to main menu" << endl;
-		cout << "\t\t|8. Log out and quit" << endl << endl;
-		
-		int loggedIn = 1;
-
-		while(loggedIn){
-			cout << "Input: ";
-			getline(cin,choice);
-
-			if(choice.size()>1)
-				cout << "Invalid choice. (Enter a single character)" << endl;
-			else if( choice=="1" )
-				currentUser.viewAll();
-
-			else if( choice=="2" )
-				currentUser.viewFriends();
-
-			else if( choice=="3" )
-				currentUser.viewKin();
-		
-			else if( choice=="4" )
-				currentUser.viewCoworkers();	
-
-			else if( choice=="5" )
-				cout << "Not implemented yet." << endl;	
-
-			else if( choice=="6" )
-				currentUser.nonMutual();
-				
-			else if( choice=="7" ){
-				loggedIn = 0;
-				menuCall();	
-			}
-
-		else if (choice == "5"){
-			cout << "<('o'<) " << endl << endl;
-			sleep(1);
-			cout << "^( '-' )^ " << endl << endl;
-			sleep(1);
-			cout << "(>‘o’)> " << endl << endl;
-			sleep(1);
-			cout << "v( ‘.’ )v " << endl << endl;
-			sleep(1);
-			cout << "<(' .' )> " << endl << endl;
-			sleep(1);
-			cout << "<('.'<) " << endl << endl;
-			sleep(1);
-			cout << "^( '.' )^ " << endl  << endl;
-			sleep(1);
-			cout << "(>‘.’)> " << endl << endl;
-			sleep(1);
-			cout << "v( ‘.’ )v " << endl << endl;
-			sleep(1);
-			cout << "<('.' )> " << endl << endl;
-			cout << endl;
-			cout << "Rock on." << endl;
-		}	
 	}
 }
 
@@ -296,9 +228,9 @@ void FriendFace::loginMenu(User& currentUser){
 /* PRIVATE METHODS ========================================================= */
 
 /* File parsing and set up user vector */
+
+
 void FriendFace::setup(vector<User>& userVec, string file_name) {
-	/* count is used first as totalUsers, then connectionCount for
-	   each user */
 	int userCount, connectionCount, found=0;
 	User* currentUser, *connection;
 	string temp, temp2;
@@ -319,33 +251,13 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 	stringstream ss(temp);
 	ss >> userCount;
 	cout << "total users: " << userCount << endl;
-
-	/* Create a user object for each user.
-	   We will fill in their connections after. */
-	for( int i=0 ; i < userCount ; i++ ) {
-	/* File parsing and set up user vector */
-	void FriendFace::setup(vector<User>& userVec, string file_name) {
-		int userCount, connectionCount, found=0;
-		User* currentUser, *connection;
-		string temp, temp2;
-		char type;
-		
-		cout << "Parsing file: " << file_name << "...";
-		ifstream inFile(file_name.c_str());	
-		
-		/* Error if input not good */
-		if(!inFile) {
-			cout << "Error with file. Terminating." << endl;
-			return;
-		}
-		cout << "OK." << endl;	
 	
-		/* Get first line, check # of users */
+	for( int i=0 ; i < userCount ; i++ ) {
 		getline(inFile,temp);
 		User u = User(temp);
 		userVec.push_back(u);	
 	}
-
+	
 	/* Start filling each user's connections */
 	while( userCount > 0 ) {
 		getline(inFile,temp,',');
@@ -409,7 +321,6 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		userCount--;
 	}
 }
-
 void FriendFace::suggested(){
 
 }
