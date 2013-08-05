@@ -67,7 +67,7 @@ class User {
 
 		bool nonMutualAux(User *currentUser, User *connection);
 
-		void getSuggestionsAux(int weight, std::vector<Suggestion> &vec, std::vector<User*> &currentVector, User *currentUser);	
+		void getSuggestionsAux(int weight, std::vector<Suggestion> &sugVec, std::vector<User*> &currentVector, User *currentUser);	
 };
 
 #endif

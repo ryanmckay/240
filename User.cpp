@@ -105,22 +105,22 @@ void User::nonMutual(User *currentUser) {
 
 
 void User::getSuggestions(User *currentUser) {
-	vector<Suggestion> suggestionVec;
+	vector<Suggestion> sugVec;
 	
 	/* get suggestions from currentUser's friends */
 	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ )
 	{
 		/* fof weight 1 */
 		if( !(*it)->friends.empty() ) {
-			getSuggestionsAux(1 , suggestionVec , (*it)->friends , currentUser);
+			getSuggestionsAux(1 , sugVec , (*it)->friends , currentUser);
 		}
 		/* kof weight 3 */
 		if( !(*it)->kin.empty() ) {
-			getSuggestionsAux(3 , suggestionVec , (*it)->kin , currentUser);
+			getSuggestionsAux(3 , sugVec , (*it)->kin , currentUser);
 		}
 		/* cof weight 7 */
 		if( !(*it)->coworkers.empty() ) {
-			getSuggestionsAux(7 , suggestionVec , (*it)->coworkers , currentUser);			
+			getSuggestionsAux(7 , sugVec , (*it)->coworkers , currentUser);			
 		}
 	}
 	
@@ -129,15 +129,15 @@ void User::getSuggestions(User *currentUser) {
 	{
 		/* fok weight 2 */
 		if( !(*it)->friends.empty() ) {
-			getSuggestionsAux(2 , suggestionVec , (*it)->friends , currentUser);
+			getSuggestionsAux(2 , sugVec , (*it)->friends , currentUser);
 		}
 		/* kok weight 4 */
 		if( !(*it)->kin.empty() ) {
-			getSuggestionsAux(4 , suggestionVec , (*it)->kin , currentUser);
+			getSuggestionsAux(4 , sugVec , (*it)->kin , currentUser);
 		}
 		/* cok weight 8 */
 		if( !(*it)->coworkers.empty() ) {
-			getSuggestionsAux(8 , suggestionVec , (*it)->coworkers , currentUser);
+			getSuggestionsAux(8 , sugVec , (*it)->coworkers , currentUser);
 		}
 	}
 
@@ -146,17 +146,23 @@ void User::getSuggestions(User *currentUser) {
 	{
 		/* foc weight 6 */
 		if( !(*it)->friends.empty() ) {
-			getSuggestionsAux(6 , suggestionVec , (*it)->friends , currentUser);
+			getSuggestionsAux(6 , sugVec , (*it)->friends , currentUser);
 		}
 		/* koc weight 9 */
 		if( !(*it)->kin.empty() ) {
-			getSuggestionsAux(9 , suggestionVec , (*it)->kin , currentUser);
+			getSuggestionsAux(9 , sugVec , (*it)->kin , currentUser);
 		}
 		/* coc weight 5 */
 		if( !(*it)->coworkers.empty() ) {
-			getSuggestionsAux(5 , suggestionVec , (*it)->coworkers , currentUser);
+			getSuggestionsAux(5 , sugVec , (*it)->coworkers , currentUser);
 		}
 	}
+
+#if 1 // TEST CODE TEST CODE TEST CODE
+	for( vector<Suggestion>::iterator sit = sugVec.begin() ; sit != sugVec.end() ; sit++) {
+		cout << (*sit).u->name << " : " << (*sit).weight << endl;
+	}
+#endif // TEST CODE TEST CODE TEST CODE
 
 }
 
@@ -192,6 +198,31 @@ bool User::nonMutualAux(User *currentUser, User *connection ) {
 	return mutual;
 }
 
-void User::getSuggestionsAux(int weight, vector<Suggestion> &vec,  vector<User*> &currentVector, User *currentUser) {
-	cout << weight << endl;	
+void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<User*> &currentVector, User *currentUser) {
+	
+	for( vector<User*>::iterator it = currentVector.begin() ; it != currentVector.end() ; it++ ) {
+		if( (*it) != currentUser ) {
+			if(sugVec.empty())
+				{
+					Suggestion s = Suggestion(weight, (*it));
+					sugVec.push_back(s);
+				}
+			else {
+				int exists = 0;
+				vector<Suggestion>::iterator sit = sugVec.begin();
+				while(!exists && sit != sugVec.end())
+				{
+					if( (*sit).u == (*it) )
+						exists = 1;
+					else 
+						sit++;
+				}
+				if(!exists && sit == sugVec.end())
+				{
+						Suggestion s = Suggestion(weight, (*it));
+						sugVec.push_back(s);
+				}
+			}
+		}
+	}
 }
