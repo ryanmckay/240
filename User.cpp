@@ -82,32 +82,43 @@ void User::addCoworker(User* connection){
 
 /* Prints out all non-mutual connections */
 void User::nonMutual(User *currentUser) {
+	int allMutual = 1;
 	/* Check mutuality of connections in friends vec */
 	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ ) {
 		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it)))
+		if( !nonMutualAux(currentUser,(*it))) {
 			cout << (*it)->name << " has not added " << currentUser->name << " as a friend." << endl;
+			allMutual = 0;
+		}
 	}
 
 	/* ... in kin vec */
 	for( vector<User*>::iterator it = kin.begin() ; it != kin.end() ; it++ ) {
 		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it)))
+		if( !nonMutualAux(currentUser,(*it))) {
 			cout << (*it)->name << " has not added " << currentUser->name << " as family." << endl;
+			allMutual = 0;
+		}
 	}
 
 	/* ... in coworkers vec*/
 	for( vector<User*>::iterator it = coworkers.begin() ; it != coworkers.end() ; it++ ) {
 		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it)))
+		if( !nonMutualAux(currentUser,(*it))) {
 			cout << (*it)->name << " has not added " << currentUser->name << " as a coworker." << endl;
+			allMutual = 0;
+		}
 	}
+	
+	if( allMutual )
+		cout << "All connections are mutual."  << endl;
+	
 }
 
 
 void User::getSuggestions(User *currentUser) {
 	vector<Suggestion> sugVec;
-	
+
 	/* get suggestions from currentUser's friends */
 	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ )
 	{
@@ -124,7 +135,7 @@ void User::getSuggestions(User *currentUser) {
 			getSuggestionsAux(7 , sugVec , (*it)->coworkers , currentUser);			
 		}
 	}
-	
+
 	/* ... currentUser's family */
 	for( vector<User*>::iterator it = kin.begin() ; it != kin.end() ; it++ )
 	{
@@ -174,7 +185,7 @@ void User::getSuggestions(User *currentUser) {
 /* Tests if a connection is mutual */
 bool User::nonMutualAux(User *currentUser, User *connection ) {
 	int mutual = 0;
-//	cout << "Connection Passed : " << connection->name << endl;
+	//	cout << "Connection Passed : " << connection->name << endl;
 
 	for( vector<User*>::iterator it = connection->friends.begin() ; it != connection->friends.end(); it++ ) {
 		if( (*it) == currentUser )
@@ -197,23 +208,24 @@ bool User::nonMutualAux(User *currentUser, User *connection ) {
 			}
 		}
 	}
-	
-	if(mutual)
-		cout << connection->name << " is mutual." << endl;
 
+	/* Toggle this to show mutual friends */
+	/*	if(mutual)
+		cout << connection->name << " is mutual." << endl;
+	 */
 	return mutual;
-	
+
 }
 
 void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<User*> &currentVector, User *currentUser) {
-	
+
 	for( vector<User*>::iterator it = currentVector.begin() ; it != currentVector.end() ; it++ ) {
 		if( (*it) != currentUser ) {
 			if(sugVec.empty())//don't need to check for duplicates it empty
-				{
-					Suggestion s = Suggestion(weight, (*it));
-					sugVec.push_back(s);
-				}
+			{
+				Suggestion s = Suggestion(weight, (*it));
+				sugVec.push_back(s);
+			}
 			else {//check for duplicates
 				int exists = 0;
 				vector<Suggestion>::iterator sit = sugVec.begin();
@@ -226,8 +238,8 @@ void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<Use
 				}
 				if(!exists && sit == sugVec.end())
 				{
-						Suggestion s = Suggestion(weight, (*it));
-						sugVec.push_back(s);
+					Suggestion s = Suggestion(weight, (*it));
+					sugVec.push_back(s);
 				}
 			}
 		}
