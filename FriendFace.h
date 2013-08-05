@@ -34,8 +34,6 @@ class FriendFace{
 
 		bool isConnected(User& user1, std::string user2);
 
-		void nonMutual();
-
 		void menu();
 
 		void quit();

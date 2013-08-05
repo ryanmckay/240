@@ -49,7 +49,9 @@ public:
 
 	void addCoworker(User* connection);
 	
-	void nonMutual();
+	void nonMutual(User *currentUser);
+
+	bool nonMutualAux(User *currentUser, User *connection);
 };
 
 #endif

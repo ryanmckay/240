@@ -231,7 +231,8 @@ void FriendFace::loginMenu(User& currentUser){
 			cout << "Not implemented yet." << endl;	
 
 		else if( choice=="6" )
-			currentUser.nonMutual();
+			/* nonMutual makes use of pointer equality */
+			currentUser.nonMutual(&currentUser);
 
 		else if( choice=="7" ){
 			loggedIn = 0;
