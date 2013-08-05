@@ -5,8 +5,10 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <sys/time.h>
 
 using namespace std;
+double b1, b2;
 
 User::User(string _name){
 	name = _name;
@@ -20,6 +22,10 @@ int User::getConnections(){
 }
 
 void User::viewAll(){
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+
 	viewKin();
 	cout << endl;
 
@@ -29,9 +35,17 @@ void User::viewAll(){
 	viewCoworkers();
 	cout << endl;
 
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "View All took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+
 }
 
 void User::viewKin(){
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+
 	int count = 0;
 	cout << "Family connection(s)" << endl;
 	for(vector<User*>::iterator it = kin.begin(); it != kin.end(); it++){
@@ -41,9 +55,17 @@ void User::viewKin(){
 	if(!count)
 		cout << "None." << endl;
 	cout << endl;
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "View Kin took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
 void User::viewFriends(){
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+	
 	int count = 0;
 	cout << "Friend connection(s)" << endl;
 	for(vector<User*>::iterator it = friends.begin(); it != friends.end(); it++){
@@ -53,9 +75,17 @@ void User::viewFriends(){
 	if(!count)
 		cout << "None." << endl;
 	cout << endl;
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "View Friends took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
 void User::viewCoworkers(){
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;	
+	
 	int count = 0;
 	cout << "Co-Worker connection(s)" << endl;
 	for(vector<User*>::iterator it = coworkers.begin(); it != coworkers.end(); it++){
@@ -65,6 +95,10 @@ void User::viewCoworkers(){
 	if(!count)
 		cout << "None." << endl;
 	cout << endl;
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "View Coworkers took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
 
@@ -82,6 +116,10 @@ void User::addCoworker(User* connection){
 
 /* Prints out all non-mutual connections */
 void User::nonMutual(User *currentUser) {
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+	
 	int allMutual = 1;
 	/* Check mutuality of connections in friends vec */
 	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ ) {
@@ -112,11 +150,18 @@ void User::nonMutual(User *currentUser) {
 	
 	if( allMutual )
 		cout << "All connections are mutual."  << endl;
-	
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "Non-mutual took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
 
 void User::getSuggestions(User *currentUser) {
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+	
 	vector<Suggestion> sugVec;
 
 	/* get suggestions from currentUser's friends */
@@ -179,6 +224,9 @@ void User::getSuggestions(User *currentUser) {
 	}
 #endif // TEST CODE TEST CODE TEST CODE
 
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "Suggested: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
 

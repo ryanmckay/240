@@ -3,8 +3,10 @@
 #include <sstream> // converting from str to numbers
 #include <unistd.h>
 #include <queue>
+#include <sys/time.h>
 using namespace std;
 int cCount = 0;//global var needed for isConnected. leave for now.
+
 /* NOTES
 
 
@@ -358,14 +360,19 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 }
 
 bool FriendFace::isConnected(User& user1, string user2){
+double b1, b2;
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+	
 	int found = 0;
 	vector<User*>::iterator it;
-	cout << "count: " << cCount << endl;
+	//cout << "count: " << cCount << endl;
 
 	if(!found && cCount !=user1.getConnections()){
 		for(it = user1.coworkers.begin(); it !=user1.coworkers.end() ; it++){
-			cout << "current user: " << (*it)->name << endl;
-			cout << "current count in loop: " << cCount << endl;
+			//cout << "current user: " << (*it)->name << endl;
+			//cout << "current count in loop: " << cCount << endl;
 			if((*it)->name == user2){
 				cout << "found it." << endl;
 				found = 1;
@@ -377,7 +384,7 @@ bool FriendFace::isConnected(User& user1, string user2){
 
 	if(!found && cCount!=user1.getConnections()){
 		for(it = user1.kin.begin(); it !=user1.kin.end(); it++){
-			cout << "current user 2: " << (*it)->name << endl;
+			//cout << "current user 2: " << (*it)->name << endl;
 
 			if((*it)->name == user2){
 				found = 1;
@@ -389,7 +396,7 @@ bool FriendFace::isConnected(User& user1, string user2){
 
 	if(!found && cCount!=user1.getConnections()){
 		for(it = user1.friends.begin(); it !=user1.friends.end(); it++){
-			cout << "current user 3: " << (*it)->name << endl;
+			//cout << "current user 3: " << (*it)->name << endl;
 			if((*it)->name == user2){
 				found = 1;
 				break;
@@ -401,6 +408,10 @@ bool FriendFace::isConnected(User& user1, string user2){
 	if(!found && cCount !=user1.getConnections()){
 		isConnected(**it, user2);
 	}
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "Isconnected took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 
 return found;
 }	
@@ -417,8 +428,17 @@ void FriendFace::trim(string& s) {
 }
 
 void FriendFace::listUsers() {
+double b1, b2;
+timeval begin;
+gettimeofday(&begin, NULL);
+b1= begin.tv_usec;
+
 	for(vector<User>::iterator it = userVec.begin(); it != userVec.end(); it++){
 		cout << userVec.at(it-userVec.begin()).name << endl;
 	}
+
+gettimeofday(&begin, NULL);
+b2 = begin.tv_usec;
+cout << "Show all users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 }
 
