@@ -1,6 +1,6 @@
 /* Andy Yee and Ryan McKay
-Lab 07
-User.h */
+   Lab 07
+   User.h */
 
 #ifndef USER_H
 #define USER_H
@@ -10,48 +10,64 @@ User.h */
 
 class User {
 
-public:
-	
-/* CONSTRUCTOR */
-	
-	User(std::string name);
+	public:
+
+		/* CONSTRUCTOR */
+
+		User(std::string name);
 
 
-public:
+	public:
 
-/* FIELDS */
-	
-	std::string name;
-	int connections;
-	std::vector<User*> kin;
-	std::vector<User*> friends;
-	std::vector<User*> coworkers;
+		/* FIELDS */
 
-/* METHODS */
-	
-	/* Returns user name */	
-	std::string getName();
+		std::string name;
+		int connections;
+		std::vector<User*> kin;
+		std::vector<User*> friends;
+		std::vector<User*> coworkers;
 
-	int getConnections();
+		/* OTHER */
+		
+		struct Suggestion {
+		   int weight;
+		   User* u;
+		   Suggestion( int _weight, User* _u ) :
+		   weight( _weight), u( _u) { } ;
+		};
 
-	/* view funcitons get called directly on the User */
-	void viewAll(); 
 
-	void viewKin();	
+		/* METHODS */
 
-	void viewFriends();
-	
-	void viewCoworkers();
+		/* Returns user name */	
+		std::string getName();
 
-	void addKin(User* connection);
+		int getConnections();
 
-	void addFriend(User* connection);
+		/* view funcitons get called directly on the User */
+		void viewAll(); 
 
-	void addCoworker(User* connection);
-	
-	void nonMutual(User *currentUser);
+		void viewKin();	
 
-	bool nonMutualAux(User *currentUser, User *connection);
+		void viewFriends();
+
+		void viewCoworkers();
+
+		void addKin(User* connection);
+
+		void addFriend(User* connection);
+
+		void addCoworker(User* connection);
+
+		void nonMutual(User *currentUser);
+
+		void getSuggestions(User *currentUser);
+
+		/* HELPER METHODS */
+
+		bool nonMutualAux(User *currentUser, User *connection);
+
+		void getSuggestionsAux(int weight, std::vector<Suggestion> &vec, std::vector<User*> &currentVector, User *currentUser);	
 };
 
 #endif

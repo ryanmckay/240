@@ -228,7 +228,8 @@ void FriendFace::loginMenu(User& currentUser){
 			currentUser.viewCoworkers();	
 
 		else if( choice=="5" )
-			cout << "Not implemented yet." << endl;	
+			/* nonMutual makes use of pointer equality */
+			currentUser.getSuggestions(&currentUser);
 
 		else if( choice=="6" )
 			/* nonMutual makes use of pointer equality */
@@ -306,11 +307,10 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		found = 0;
 		vector<User>::iterator it = userVec.begin();
 		while(!found && it!=userVec.end()) {
-			//		cout << "hit2" << endl;
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
 				currentUser->connections = connectionCount;
-				cout << "grabbed " << currentUser->name << endl;
+//				cout << "grabbed " << currentUser->name << endl;
 				found = 1;
 			}
 			else
@@ -352,11 +352,8 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			connectionCount--;	
 		}
 		userCount--;
-		cout << "usercount: " << userCount << endl;
+//		cout << "usercount: " << userCount << endl;
 	}
-}
-void FriendFace::suggested(){
-
 }
 
 bool FriendFace::isConnected(User& user1, string user2){

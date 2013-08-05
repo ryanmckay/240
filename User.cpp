@@ -103,6 +103,64 @@ void User::nonMutual(User *currentUser) {
 	}
 }
 
+
+void User::getSuggestions(User *currentUser) {
+	vector<Suggestion> suggestionVec;
+	
+	/* get suggestions from currentUser's friends */
+	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ )
+	{
+		/* fof weight 1 */
+		if( !(*it)->friends.empty() ) {
+			getSuggestionsAux(1 , suggestionVec , (*it)->friends , currentUser);
+		}
+		/* kof weight 3 */
+		if( !(*it)->kin.empty() ) {
+			getSuggestionsAux(3 , suggestionVec , (*it)->kin , currentUser);
+		}
+		/* cof weight 7 */
+		if( !(*it)->coworkers.empty() ) {
+			getSuggestionsAux(7 , suggestionVec , (*it)->coworkers , currentUser);			
+		}
+	}
+	
+	/* ... currentUser's family */
+	for( vector<User*>::iterator it = kin.begin() ; it != kin.end() ; it++ )
+	{
+		/* fok weight 2 */
+		if( !(*it)->friends.empty() ) {
+			getSuggestionsAux(2 , suggestionVec , (*it)->friends , currentUser);
+		}
+		/* kok weight 4 */
+		if( !(*it)->kin.empty() ) {
+			getSuggestionsAux(4 , suggestionVec , (*it)->kin , currentUser);
+		}
+		/* cok weight 8 */
+		if( !(*it)->coworkers.empty() ) {
+			getSuggestionsAux(8 , suggestionVec , (*it)->coworkers , currentUser);
+		}
+	}
+
+	/* ... currentUser's coworkers */	
+	for( vector<User*>::iterator it = coworkers.begin() ; it != coworkers.end() ; it++ )
+	{
+		/* foc weight 6 */
+		if( !(*it)->friends.empty() ) {
+			getSuggestionsAux(6 , suggestionVec , (*it)->friends , currentUser);
+		}
+		/* koc weight 9 */
+		if( !(*it)->kin.empty() ) {
+			getSuggestionsAux(9 , suggestionVec , (*it)->kin , currentUser);
+		}
+		/* coc weight 5 */
+		if( !(*it)->coworkers.empty() ) {
+			getSuggestionsAux(5 , suggestionVec , (*it)->coworkers , currentUser);
+		}
+	}
+
+}
+
+
 /* Tests if a connection is mutual */
 bool User::nonMutualAux(User *currentUser, User *connection ) {
 	int mutual = 0;
@@ -134,3 +192,6 @@ bool User::nonMutualAux(User *currentUser, User *connection ) {
 	return mutual;
 }
 
+void User::getSuggestionsAux(int weight, vector<Suggestion> &vec,  vector<User*> &currentVector, User *currentUser) {
+	cout << weight << endl;	
+}

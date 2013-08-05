@@ -20,7 +20,7 @@ class FriendFace{
 		std::vector<User> userVec;
 
 		void setup(std::vector<User>& userVec, std::string file_name);
-		
+
 
 	public:
 
@@ -30,8 +30,6 @@ class FriendFace{
 
 		void showContacts();
 
-		void getSuggestions();
-
 		bool isConnected(User& user1, std::string user2);
 
 		void menu();
@@ -39,14 +37,13 @@ class FriendFace{
 		void quit();
 
 		void trim(std::string& s);
-		
+
 		void listUsers();
 
 		void menuCall();
 
 		void loginMenu(User& currentUser);
 
-		void suggested();
 };
 #endif
 
