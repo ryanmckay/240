@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -159,8 +160,11 @@ void User::getSuggestions(User *currentUser) {
 	}
 
 #if 1 // TEST CODE TEST CODE TEST CODE
+	cout << "Suggestions" << endl;
+	int count = 1;
 	for( vector<Suggestion>::iterator sit = sugVec.begin() ; sit != sugVec.end() ; sit++) {
-		cout << (*sit).u->name << " : " << (*sit).weight << endl;
+		cout << count << ". " << (*sit).u->name << " : " << "(weight)" << (*sit).weight << endl;
+		count++;
 	}
 #endif // TEST CODE TEST CODE TEST CODE
 
@@ -188,26 +192,29 @@ bool User::nonMutualAux(User *currentUser, User *connection ) {
 
 	if(!mutual) {
 		for( vector<User*>::iterator it = connection->coworkers.begin() ; it != connection->coworkers.end(); it++ ) { 
-			if( (*it) == currentUser ) 
+			if( (*it) == currentUser ){ 
 				mutual = 1;
+			}
 		}
 	}
 	
 	if(mutual)
 		cout << connection->name << " is mutual." << endl;
+
 	return mutual;
+	
 }
 
 void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<User*> &currentVector, User *currentUser) {
 	
 	for( vector<User*>::iterator it = currentVector.begin() ; it != currentVector.end() ; it++ ) {
 		if( (*it) != currentUser ) {
-			if(sugVec.empty())
+			if(sugVec.empty())//don't need to check for duplicates it empty
 				{
 					Suggestion s = Suggestion(weight, (*it));
 					sugVec.push_back(s);
 				}
-			else {
+			else {//check for duplicates
 				int exists = 0;
 				vector<Suggestion>::iterator sit = sugVec.begin();
 				while(!exists && sit != sugVec.end())
@@ -224,5 +231,8 @@ void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<Use
 				}
 			}
 		}
+	}
+	if(!sugVec.empty()){
+		sort(sugVec.begin(), sugVec.end());
 	}
 }

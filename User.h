@@ -34,6 +34,9 @@ class User {
 		   User* u;
 		   Suggestion( int _weight, User* _u ) :
 		   weight( _weight), u( _u) { } ;
+		   bool operator < (const Suggestion& rhs) const{
+			   return weight < rhs.weight;
+		   }
 		};
 
 

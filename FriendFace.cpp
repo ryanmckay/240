@@ -196,6 +196,8 @@ void FriendFace::menuCall() {
 
 void FriendFace::loginMenu(User& currentUser){
 	string choice;
+	cout << "Connections: " << currentUser.getConnections() << endl;
+
 	cout << endl;
 	cout << "\tLog in Menu" << endl;
 	cout << "\t\t|1. Show all connections" << endl;
@@ -206,12 +208,11 @@ void FriendFace::loginMenu(User& currentUser){
 	cout << "\t\t|6. Show all non-mutual connections" << endl;
 	cout << "\t\t|7. Log out and return to main menu" << endl;
 	cout << "\t\t|8. Log out and quit" << endl << endl;
-
 	int loggedIn = 1;
-	cout << "connections: " << currentUser.getConnections() << endl;
 	while(loggedIn){
 		cout << "Input: ";
 		getline(cin,choice);
+		cout << endl;
 
 		if(choice.size()>1)
 			cout << "Invalid choice. (Enter a single character)" << endl;
