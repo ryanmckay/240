@@ -149,12 +149,6 @@ void FriendFace::menuCall() {
 			cout << "User2: " << user2str << endl;
 			cout << "And now to actually check..." << endl;
 
-			/*			cout << "connections: ";
-						/(&user1->getConnections());
-						cout << "connections of user 1....: ";
-						cout << user1->getConnections();//doesn't work
-						cout << endl;
-			 */
 			if(isConnected(*user1, user2str)){
 				cout << "These two users are connected." << endl;
 			}
@@ -227,7 +221,6 @@ void FriendFace::loginMenu(User& currentUser){
 		cout << "\t\t|3. Show all family" << endl;
 		cout << "\t\t|4. Show all coworkers" << endl; 
 		cout << "\t\t|5. Get suggested friends" << endl;
-		//	cout << "\t\t|6. Show all non-mutual connections" << endl;
 		cout << "\t\t|6. Log out and return to main menu" << endl;
 		cout << "\t\t|7. Log out and quit" << endl << endl;
 		cout << "Input: ";
@@ -251,10 +244,6 @@ void FriendFace::loginMenu(User& currentUser){
 		else if( choice=="5" )
 			/* nonMutual makes use of pointer equality */
 			currentUser.getSuggestions(&currentUser);
-
-		//		else if( choice=="6" )
-		//			/* nonMutual makes use of pointer equality */
-		//			currentUser.nonMutual(&currentUser);
 
 		else if( choice=="6" ){
 			loggedIn = 0;
@@ -323,7 +312,6 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 		}
 		ss >> connectionCount;
 
-		//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 		/* grab correct user object */
 		found = 0;
 		vector<User>::iterator it = userVec.begin();
@@ -331,7 +319,6 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
 				currentUser->connections = connectionCount;
-				//				cout << "grabbed " << currentUser->name << endl;
 				found = 1;
 			}
 			else
@@ -387,12 +374,13 @@ bool FriendFace::isConnected(User& user1, string user2){
 	vector<User*>::iterator it;
 	//cout << "count: " << cCount << endl;
 
+	/*will go through each vector individually. Breaks if found*/
 	if(!found && cCount !=user1.getConnections()){
 		for(it = user1.coworkers.begin(); it !=user1.coworkers.end() ; it++){
 			//cout << "current user: " << (*it)->name << endl;
 			//cout << "current count in loop: " << cCount << endl;
 			if((*it)->name == user2){
-				cout << "found it." << endl;
+				//cout << "found it." << endl;
 				found = 1;
 				break;
 			}
@@ -422,7 +410,7 @@ bool FriendFace::isConnected(User& user1, string user2){
 			cCount++;
 		}
 	}
-
+	/*recursively call next user*/
 	if(!found && cCount !=user1.getConnections()){
 		isConnected(**it, user2);
 	}

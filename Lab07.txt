@@ -1,0 +1,89 @@
+15
+Oracle
+Johnny_Depp
+Amanda_Bynes
+Timmy_Turner
+Sally_Sparrow
+Reginald_Fairfield
+Umbrielle
+Charlie_Chaplin
+Emril_LaGasse
+Alice
+Bob
+Carl
+Danielle
+Elsie
+Fred
+Johnny_Depp, 3
+Umbrielle, C
+Sally_Sparrow, K
+Amanda_Bynes, F
+Umbrielle, 4
+Johnny_Depp, C
+Sally_Sparrow, K
+Charlie_Chaplin, F
+Reginald_Fairfield, F
+Amanda_Bynes, 3
+Timmy_Turner, C
+Sally_Sparrow, F
+Charlie_Chaplin, K
+Timmy_Turner, 3
+Sally_Sparrow, F
+Reginald_Fairfield, K
+Emril_LaGasse, F
+Sally_Sparrow, 2
+Umbrielle, F
+Amanda Bynes, C
+Charlie_Chaplin, 5
+Umbrielle, C
+Sally_Sparrow, F
+Amanda_Bynes, K
+Reginald_Fairfield, C
+Emril_LaGasse, F
+Emril_LaGasse, 2
+Reginald_Fairfield, F
+Timmy_Turner, K
+Reginald_Fairfield, 3
+Emril LaGasse, F
+Umbrielle, K
+Charlie_Chaplin, C
+Bob, 4
+Alice, F
+Carl, F
+Fred, K
+Elsie, C
+Alice, 2
+Bob, F
+Danielle, K
+Danielle, 3
+Alice, K
+Carl, F
+Fred, C
+Fred, 3
+Danielle, C
+Bob, K
+Alice, F
+Elsie, 3
+Bob, C
+Alice, F
+Danielle, F
+Carl, 4
+Bob, F
+Danielle, C
+Fred, F
+Elsie, F
+Oracle, 14
+Johnny_Depp, K
+Amanda_Bynes, F
+Timmy_Turner, C
+Sally_Sparrow, K
+Reginald_Fairfield, F
+Umbrielle, C
+Charlie_Chaplin, K
+Emril_LaGasse, F
+Alice, C
+Bob, K
+Carl, F
+Danielle, C
+Elsie, K
+Fred, F
