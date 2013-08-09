@@ -44,6 +44,10 @@ class FriendFace{
 
 		void loginMenu(User& currentUser);
 
+		void nonMutual(User *currentUser);
+
+		bool nonMutualAux(User *currentUser, User *connection);
+
 };
 #endif
 

@@ -27,13 +27,10 @@ gettimeofday(&begin, NULL);
 b1= begin.tv_usec;
 
 	viewKin();
-	cout << endl;
 
 	viewFriends();
-	cout << endl;
 
 	viewCoworkers();
-	cout << endl;
 
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
@@ -54,7 +51,6 @@ b1= begin.tv_usec;
 	}
 	if(!count)
 		cout << "None." << endl;
-	cout << endl;
 
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
@@ -74,7 +70,6 @@ b1= begin.tv_usec;
 	}
 	if(!count)
 		cout << "None." << endl;
-	cout << endl;
 
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
@@ -94,7 +89,6 @@ b1= begin.tv_usec;
 	}
 	if(!count)
 		cout << "None." << endl;
-	cout << endl;
 
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
@@ -113,49 +107,6 @@ void User::addFriend(User* connection){
 void User::addCoworker(User* connection){
 	coworkers.push_back(connection);
 }
-
-/* Prints out all non-mutual connections */
-void User::nonMutual(User *currentUser) {
-timeval begin;
-gettimeofday(&begin, NULL);
-b1= begin.tv_usec;
-	
-	int allMutual = 1;
-	/* Check mutuality of connections in friends vec */
-	for( vector<User*>::iterator it = friends.begin() ; it != friends.end() ; it++ ) {
-		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it))) {
-			cout << (*it)->name << " has not added " << currentUser->name << " as a friend." << endl;
-			allMutual = 0;
-		}
-	}
-
-	/* ... in kin vec */
-	for( vector<User*>::iterator it = kin.begin() ; it != kin.end() ; it++ ) {
-		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it))) {
-			cout << (*it)->name << " has not added " << currentUser->name << " as family." << endl;
-			allMutual = 0;
-		}
-	}
-
-	/* ... in coworkers vec*/
-	for( vector<User*>::iterator it = coworkers.begin() ; it != coworkers.end() ; it++ ) {
-		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
-		if( !nonMutualAux(currentUser,(*it))) {
-			cout << (*it)->name << " has not added " << currentUser->name << " as a coworker." << endl;
-			allMutual = 0;
-		}
-	}
-	
-	if( allMutual )
-		cout << "All connections are mutual."  << endl;
-
-gettimeofday(&begin, NULL);
-b2 = begin.tv_usec;
-cout << "Non-mutual took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
-}
-
 
 void User::getSuggestions(User *currentUser) {
 timeval begin;
@@ -219,7 +170,7 @@ b1= begin.tv_usec;
 	cout << "Suggestions" << endl;
 	int count = 1;
 	for( vector<Suggestion>::iterator sit = sugVec.begin() ; sit != sugVec.end() ; sit++) {
-		cout << count << ". " << (*sit).u->name << " : " << "(weight)" << (*sit).weight << endl;
+		cout << count << ". " << (*sit).u->name << " : " << "priority " << (*sit).weight << endl;
 		count++;
 	}
 #endif // TEST CODE TEST CODE TEST CODE
@@ -227,42 +178,6 @@ b1= begin.tv_usec;
 gettimeofday(&begin, NULL);
 b2 = begin.tv_usec;
 cout << "Suggested: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
-}
-
-
-/* Tests if a connection is mutual */
-bool User::nonMutualAux(User *currentUser, User *connection ) {
-	int mutual = 0;
-	//	cout << "Connection Passed : " << connection->name << endl;
-
-	for( vector<User*>::iterator it = connection->friends.begin() ; it != connection->friends.end(); it++ ) {
-		if( (*it) == currentUser )
-			mutual = 1;
-	}
-
-	/* check other vectors if currentUser not found in connection's friends */
-
-	if(!mutual) {
-		for( vector<User*>::iterator it = connection->kin.begin() ; it != connection->kin.end(); it++ ) { 
-			if( (*it) == currentUser ) 
-				mutual = 1;
-		}
-	}
-
-	if(!mutual) {
-		for( vector<User*>::iterator it = connection->coworkers.begin() ; it != connection->coworkers.end(); it++ ) { 
-			if( (*it) == currentUser ){ 
-				mutual = 1;
-			}
-		}
-	}
-
-	/* Toggle this to show mutual friends */
-	/*	if(mutual)
-		cout << connection->name << " is mutual." << endl;
-	 */
-	return mutual;
-
 }
 
 void User::getSuggestionsAux(int weight, vector<Suggestion> &sugVec,  vector<User*> &currentVector, User *currentUser) {

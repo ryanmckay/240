@@ -62,13 +62,9 @@ class User {
 
 		void addCoworker(User* connection);
 
-		void nonMutual(User *currentUser);
-
 		void getSuggestions(User *currentUser);
 
 		/* HELPER METHODS */
-
-		bool nonMutualAux(User *currentUser, User *connection);
 
 		void getSuggestionsAux(int weight, std::vector<Suggestion> &sugVec, std::vector<User*> &currentVector, User *currentUser);	
 };

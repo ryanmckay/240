@@ -28,19 +28,20 @@ void FriendFace::menuCall() {
 	string currentUserName;
 	User* currentUser;
 
-	cout << endl << endl;
-	cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
-	cout << "             Welcome to FriendFace(patent pending)                  " << endl;
-	cout << "         You have been selected for pre-alpha testing.              " << endl;
-	cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
-	cout << "\t What would you like to do?" << endl;
-	cout << "\t\t|1. Log in\n";
-	cout << "\t\t|2. Show all users\n";
-	cout << "\t\t|3. Check if two users are connected\n";
-	cout << "\t\t|4. Quit\n";
-	cout << "\t\t|5. Dance\n";
 
 	while(running) {
+		cout << endl << endl;
+		cout << "     \033[1;31m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n";
+		cout << "             Welcome to FriendFace(patent pending)                  " << endl;
+		cout << "         You have been selected for pre-alpha testing.              " << endl;
+		cout << "     \033[1;31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n" << endl;
+		cout << "\t What would you like to do?" << endl;
+		cout << "\t\t|1. Log in\n";
+		cout << "\t\t|2. Show all users\n";
+		cout << "\t\t|3. Check if two users are connected\n";
+		cout << "\t\t|4. Print all non-mutual connections\n";
+		cout << "\t\t|5. Quit\n";
+		cout << "\t\t|6. Dance\n";
 
 		cout << endl << "Input: ";
 		getline(cin, choice);
@@ -73,7 +74,7 @@ void FriendFace::menuCall() {
 					cout << "User not found." << endl << endl;
 			}
 			if(found){
-				cout << "Logged in as: " << currentUserName << endl;
+				cout << endl << "Logged in as: " << currentUserName << endl;
 				loginMenu((*currentUser));
 			}
 
@@ -162,15 +163,32 @@ void FriendFace::menuCall() {
 
 		}//end of choice 3
 
+		else if (choice =="4") {
+			double b1, b2;
+			timeval begin;
+			gettimeofday(&begin, NULL);
+			b1= begin.tv_usec;
+
+			cout << "*Non-mutual Connections*" << endl;
+			for(vector<User>::iterator it = userVec.begin() ; it != userVec.end() ; it++ ) {
+				nonMutual( &(*it) );
+			}
+
+			gettimeofday(&begin, NULL);
+			b2 = begin.tv_usec;
+			cout << "Non-mutual took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+
+		}
+
 		/* Quit */
-		else if (choice == "4") {
+		else if (choice == "5") {
 			cout << "Thank you for using FriendFace." << endl;
 			running = 0;
 			exit(-1);
 		}
 
 
-		else if (choice == "5"){
+		else if (choice == "6"){
 			cout << "<('o'<) " << endl << endl;
 			sleep(1);
 			cout << "^( '-' )^ " << endl << endl;
@@ -198,20 +216,20 @@ void FriendFace::menuCall() {
 
 void FriendFace::loginMenu(User& currentUser){
 	string choice;
-	cout << "Connections: " << currentUser.getConnections() << endl;
-
-	cout << endl;
-	cout << "\tLog in Menu" << endl;
-	cout << "\t\t|1. Show all connections" << endl;
-	cout << "\t\t|2. Show all friends" << endl;
-	cout << "\t\t|3. Show all family" << endl;
-	cout << "\t\t|4. Show all coworkers" << endl; 
-	cout << "\t\t|5. Get suggested friends" << endl;
-	cout << "\t\t|6. Show all non-mutual connections" << endl;
-	cout << "\t\t|7. Log out and return to main menu" << endl;
-	cout << "\t\t|8. Log out and quit" << endl << endl;
 	int loggedIn = 1;
 	while(loggedIn){
+		cout << "Connections: " << currentUser.getConnections() << endl;
+
+		cout << endl;
+		cout << "\tLog in Menu" << endl;
+		cout << "\t\t|1. Show all connections" << endl;
+		cout << "\t\t|2. Show all friends" << endl;
+		cout << "\t\t|3. Show all family" << endl;
+		cout << "\t\t|4. Show all coworkers" << endl; 
+		cout << "\t\t|5. Get suggested friends" << endl;
+		//	cout << "\t\t|6. Show all non-mutual connections" << endl;
+		cout << "\t\t|6. Log out and return to main menu" << endl;
+		cout << "\t\t|7. Log out and quit" << endl << endl;
 		cout << "Input: ";
 		getline(cin,choice);
 		cout << endl;
@@ -234,16 +252,16 @@ void FriendFace::loginMenu(User& currentUser){
 			/* nonMutual makes use of pointer equality */
 			currentUser.getSuggestions(&currentUser);
 
-		else if( choice=="6" )
-			/* nonMutual makes use of pointer equality */
-			currentUser.nonMutual(&currentUser);
+		//		else if( choice=="6" )
+		//			/* nonMutual makes use of pointer equality */
+		//			currentUser.nonMutual(&currentUser);
 
-		else if( choice=="7" ){
+		else if( choice=="6" ){
 			loggedIn = 0;
 			menuCall();	
 		}
 
-		else if( choice=="8" ){
+		else if( choice=="7" ){
 			loggedIn = 0;
 			cout << "Thank you for using FriendFinder." << endl;
 			cout << "Goodbye." << endl;
@@ -304,7 +322,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			exit(-1);
 		}
 		ss >> connectionCount;
-		
+
 		//	cout << "currentUser: " << temp << " | connectionCount: " << connectionCount << endl;
 		/* grab correct user object */
 		found = 0;
@@ -313,7 +331,7 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			if( temp == userVec.at(it-userVec.begin()).name ) {
 				currentUser = &userVec.at(it-userVec.begin());
 				currentUser->connections = connectionCount;
-//				cout << "grabbed " << currentUser->name << endl;
+				//				cout << "grabbed " << currentUser->name << endl;
 				found = 1;
 			}
 			else
@@ -355,16 +373,16 @@ void FriendFace::setup(vector<User>& userVec, string file_name) {
 			connectionCount--;	
 		}
 		userCount--;
-//		cout << "usercount: " << userCount << endl;
+		//		cout << "usercount: " << userCount << endl;
 	}
 }
 
 bool FriendFace::isConnected(User& user1, string user2){
-double b1, b2;
-timeval begin;
-gettimeofday(&begin, NULL);
-b1= begin.tv_usec;
-	
+	double b1, b2;
+	timeval begin;
+	gettimeofday(&begin, NULL);
+	b1= begin.tv_usec;
+
 	int found = 0;
 	vector<User*>::iterator it;
 	//cout << "count: " << cCount << endl;
@@ -404,17 +422,55 @@ b1= begin.tv_usec;
 			cCount++;
 		}
 	}
-	
+
 	if(!found && cCount !=user1.getConnections()){
 		isConnected(**it, user2);
 	}
 
-gettimeofday(&begin, NULL);
-b2 = begin.tv_usec;
-cout << "Isconnected took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+	gettimeofday(&begin, NULL);
+	b2 = begin.tv_usec;
+	cout << "Isconnected took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
 
-return found;
+	return found;
 }	
+
+/* Prints out all non-mutual connections */
+void FriendFace::nonMutual(User *currentUser) {
+
+	// allMutual checks if all of currentUser's connections are mutual.
+	//	int allMutual = 1;
+
+	/* Check mutuality of connections in friends vec */
+	for( vector<User*>::iterator it = (*currentUser).friends.begin() ; it != (*currentUser).friends.end() ; it++ ) {
+		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
+		if( !nonMutualAux(currentUser,(*it))) {
+			cout << (*it)->name << " has not added " << currentUser->name << " as a friend." << endl;
+			//			allMutual = 0;
+		}
+	}
+
+	/* ... in kin vec */
+	for( vector<User*>::iterator it = (*currentUser).kin.begin() ; it != (*currentUser).kin.end() ; it++ ) {
+		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
+		if( !nonMutualAux(currentUser,(*it))) {
+			cout << (*it)->name << " has not added " << currentUser->name << " as family." << endl;
+			//			allMutual = 0;
+		}
+	}
+
+	/* ... in coworkers vec*/
+	for( vector<User*>::iterator it = (*currentUser).coworkers.begin() ; it != (*currentUser).coworkers.end() ; it++ ) {
+		/* dereferenced "it" once. passing a pointer to the connection (type User*) */
+		if( !nonMutualAux(currentUser,(*it))) {
+			cout << (*it)->name << " has not added " << currentUser->name << " as a coworker." << endl;
+			//			allMutual = 0;
+		}
+	}
+
+	//	if( allMutual )
+	//		cout << "All connections are mutual."  << endl;
+
+}
 
 /* HELPER METHODS ========================================================= */
 
@@ -428,17 +484,52 @@ void FriendFace::trim(string& s) {
 }
 
 void FriendFace::listUsers() {
-double b1, b2;
-timeval begin;
-gettimeofday(&begin, NULL);
-b1= begin.tv_usec;
+	double b1, b2;
+	timeval begin;
+	gettimeofday(&begin, NULL);
+	b1= begin.tv_usec;
 
 	for(vector<User>::iterator it = userVec.begin(); it != userVec.end(); it++){
 		cout << userVec.at(it-userVec.begin()).name << endl;
 	}
 
-gettimeofday(&begin, NULL);
-b2 = begin.tv_usec;
-cout << "Show all users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+	gettimeofday(&begin, NULL);
+	b2 = begin.tv_usec;
+	cout << "Show all users took: " << ((b2-b1)*100)/CLOCKS_PER_SEC << " seconds.\n" << endl;
+}
+
+/* Tests if a connection is mutual */
+bool FriendFace::nonMutualAux(User *currentUser, User *connection ) {
+	int mutual = 0;
+	//  cout << "Connection Passed : " << connection->name << endl;
+
+	for( vector<User*>::iterator it = connection->friends.begin() ; it != connection->friends.end(); it++ ) {
+		if( (*it) == currentUser )
+			mutual = 1;
+	}
+
+	/* check other vectors if currentUser not found in connection's friends */
+
+	if(!mutual) {
+		for( vector<User*>::iterator it = connection->kin.begin() ; it != connection->kin.end(); it++ ) {
+			if( (*it) == currentUser )
+				mutual = 1;
+		}
+	}
+
+	if(!mutual) {
+		for( vector<User*>::iterator it = connection->coworkers.begin() ; it != connection->coworkers.end(); it++ ) {
+			if( (*it) == currentUser ){
+				mutual = 1;
+			}
+		}
+	}
+
+	/* Toggle this to show mutual friends */
+	/*  if(mutual)
+		cout << connection->name << " is mutual." << endl;
+	 */
+	return mutual;
+
 }
 
